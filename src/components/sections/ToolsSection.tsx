@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ToolsSection = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
+
   return (
     <section id="herramientas" className="section">
       <h2 className="section-title">Herramientas de Minería de Datos</h2>
       
-      <div className="content-block">
-        <div className="text-content">
+      <div className="content-block" data-aos="fade-right">
+        <div className="text-content" >
           <h3>Software Especializado</h3>
           <p><strong>Orange:</strong> Herramienta visual de minería de datos que permite crear flujos de trabajo mediante programación visual. Ideal para principiantes y expertos.</p>
           <p><strong>KNIME:</strong> Plataforma de análisis de datos que facilita la creación de flujos de trabajo complejos sin necesidad de programación.</p>
@@ -16,7 +23,7 @@ const ToolsSection = () => {
         </div>
       </div>
 
-      <div className="content-block reverse">
+      <div className="content-block reverse" data-aos="fade-left">
         <div className="text-content">
           <h3>Herramientas Avanzadas</h3>
           <p><strong>RapidMiner:</strong> Plataforma integral que cubre todo el ciclo de vida del análisis de datos, desde la preparación hasta el despliegue de modelos.</p>

@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ResourcesSection = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
   return (
     <section id="recursos" className="section">
       <h2 className="section-title">Recursos y Aplicaciones</h2>
       
-      <div className="content-block">
+      <div className="content-block" data-aos="fade-up-right">
         <div className="text-content">
           <h3>Bases de Datos Públicas</h3>
           <ul>

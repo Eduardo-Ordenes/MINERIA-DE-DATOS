@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import VideoCard from '../ui/VideoCard';
 
 const DemoSection = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
+
   const videos = [
     {
       id: 1,
@@ -21,7 +28,7 @@ const DemoSection = () => {
     <section id="demostraciones" className="section">
       <h2 className="section-title">Demostraciones Prácticas</h2>
       
-      <div className="video-grid">
+      <div className="video-grid" data-aos="fade-up-left">
         {videos.map(video => (
           <VideoCard key={video.id} {...video} />
         ))}

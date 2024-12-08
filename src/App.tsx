@@ -4,6 +4,7 @@ import ConceptsSection from './components/sections/ConceptsSection';
 import ToolsSection from './components/sections/ToolsSection';
 import ResourcesSection from './components/sections/ResourcesSection';
 import DemoSection from './components/sections/DemoSection';
+import AppDatamining from './components/sections/DataMiningCharts';
 import './styles/global.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <ToolsSection />
         <ResourcesSection />
         <DemoSection />
+        <AppDatamining />
       </main>
     </div>
   );

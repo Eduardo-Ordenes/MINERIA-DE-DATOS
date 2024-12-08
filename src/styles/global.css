@@ -51,7 +51,7 @@ body {
 .image-content {
   flex: 1;
   justify-content: center;
-    display: flex;
+  display: flex;
 }
 
 .image-content img {
@@ -103,12 +103,139 @@ body {
   .content-block {
     flex-direction: column;
   }
-  
+
   .content-block.reverse {
     flex-direction: column;
   }
-  
+
   .section-title {
     font-size: 2rem;
   }
 }
+
+
+
+
+/* Conceptos section */
+
+.container-etapas {
+  width: 24rem;
+  height: 19rem;
+  border: inset;
+  border-radius: 8px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  background: var(--card-background);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: none !important;
+  flex-direction: column;
+}
+
+.container-main-etapas {
+  display: flex;
+}
+
+.container-texto-etapas {
+  display: flex;
+}
+
+.arrow {
+  font-size: 4rem;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.title-etapas {
+  margin: 0 0 10px 0;
+  color: var(--accent-color);
+}
+
+.visibility-hidden {
+  height: 1rem;
+  visibility: hidden !important;
+}
+
+/* .margin-etapas {
+  margin: 0 1rem;
+} */
+
+@media (max-width: 768px) {
+  .container-main-etapas {
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center;
+  }
+
+  .container-etapas {
+    width: 100%; 
+    margin-bottom: 1rem; 
+    height: auto; 
+  }
+
+  .margin-etapas { 
+    visibility: hidden !important;
+  }
+
+  .visibility-hidden { 
+    transform: rotate(90deg) !important;
+    visibility: visible !important;
+    padding: 2rem;
+  }
+
+  .arrow {
+    font-size: 3rem; 
+    margin: 1rem 0; 
+    transform: rotate(90deg) !important;
+  }
+
+  .title-etapas {
+    font-size: 1.5rem;
+  }
+
+  .container-etapas {
+    width: 80vw; 
+    height: 30vh;
+    padding: 1rem; 
+  }
+
+  /* #herramientas {
+    transform: translate(0, -40%) !important;
+  }
+
+  #recursos {
+    transform: translate(0, -80%) !important;
+  } */
+
+  .arrow-invisible {
+    display: none !important;
+  }
+
+  .container-invisible {
+    display: none !important;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+  .arrow {
+    font-size: 2.5rem; 
+    transform: rotate(90deg) !important;
+  }
+
+  .title-etapas {
+    font-size: 1.2rem; 
+  }
+
+  .container-etapas {
+    width: 80vw; 
+    height: 30vh;
+    padding: 1rem;
+  }
+}
+
