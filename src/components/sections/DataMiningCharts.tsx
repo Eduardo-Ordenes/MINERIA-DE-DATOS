@@ -153,7 +153,7 @@ const DataMiningCharts: React.FC = () => {
   }, []);
 
   return (
-    <div className="data-mining-charts">
+    <div id='graficos' className="data-mining-charts">
       <h2 className="section-title">Grafico Interactivo</h2>
 
       <div className="chart-container" data-aos="fade-up">

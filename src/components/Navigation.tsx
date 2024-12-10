@@ -20,6 +20,7 @@ const Navigation = () => {
           <a href="#herramientas" className="nav-link" onClick={closeMenu}>Herramientas</a>
           <a href="#recursos" className="nav-link" onClick={closeMenu}>Recursos</a>
           <a href="#demostraciones" className="nav-link" onClick={closeMenu}>Demostraciones</a>
+          <a href="#graficos" className="nav-link" onClick={closeMenu}>Graficos</a>
         </div>
       </div>
     </nav>
