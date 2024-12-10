@@ -15,8 +15,8 @@ const ResourcesSection = () => {
         <div className="text-content">
           <h3>Bases de Datos Públicas</h3>
           <ul>
-            <li><a href="https://www.kaggle.com/datasets" target="_blank" rel="noopener noreferrer">Kaggle Datasets</a></li>
-            <li><a href="https://archive.ics.uci.edu/ml/index.php" target="_blank" rel="noopener noreferrer">UCI Machine Learning Repository</a></li>
+            <li><a href="https://www.kaggle.com/datasets" className='style-link' target="_blank" rel="noopener noreferrer">Kaggle Datasets</a></li>
+            <li><a href="https://archive.ics.uci.edu/ml/index.php" className='style-link' target="_blank" rel="noopener noreferrer">UCI Machine Learning Repository</a></li>
           </ul>
         </div>
         <div className="image-content">

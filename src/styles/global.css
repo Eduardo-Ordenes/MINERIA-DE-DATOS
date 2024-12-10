@@ -166,32 +166,38 @@ body {
   margin: 0 1rem;
 } */
 
+.style-link {
+  color: white;
+  font-weight: bold;
+}
+
+
 @media (max-width: 768px) {
   .container-main-etapas {
-    flex-direction: column; 
-    align-items: center; 
+    flex-direction: column;
+    align-items: center;
     text-align: center;
   }
 
   .container-etapas {
-    width: 100%; 
-    margin-bottom: 1rem; 
-    height: auto; 
+    width: 100%;
+    margin-bottom: 1rem;
+    height: auto;
   }
 
-  .margin-etapas { 
+  .margin-etapas {
     visibility: hidden !important;
   }
 
-  .visibility-hidden { 
+  .visibility-hidden {
     transform: rotate(90deg) !important;
     visibility: visible !important;
     padding: 2rem;
   }
 
   .arrow {
-    font-size: 3rem; 
-    margin: 1rem 0; 
+    font-size: 3rem;
+    margin: 1rem 0;
     transform: rotate(90deg) !important;
   }
 
@@ -200,9 +206,9 @@ body {
   }
 
   .container-etapas {
-    width: 80vw; 
+    width: 80vw;
     /* height: 30vh; */
-    padding: 1rem; 
+    padding: 1rem;
   }
 
   /* #herramientas {
@@ -226,18 +232,17 @@ body {
 
 @media (max-width: 480px) {
   .arrow {
-    font-size: 2.5rem; 
+    font-size: 2.5rem;
     transform: rotate(90deg) !important;
   }
 
   .title-etapas {
-    font-size: 1.2rem; 
+    font-size: 1.2rem;
   }
 
   .container-etapas {
-    width: 80vw; 
+    width: 80vw;
     /* height: 30vh; */
     padding: 1rem;
   }
 }
-
