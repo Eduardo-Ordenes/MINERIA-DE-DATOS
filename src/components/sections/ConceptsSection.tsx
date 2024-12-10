@@ -22,7 +22,7 @@ const ConceptsSection = () => {
           </p>
         </div>
         <div className="image-content">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800" alt="Visualización de datos" />
+          <img src="https://img.freepik.com/vector-gratis/concepto-isometrico-mineria-datos_1284-15133.jpg?t=st=1733797644~exp=1733801244~hmac=e657518749f8496b0cdc307cff7bce6d8e157ac368a7fe875f26b14d1fdd8ffb&w=740" alt="Visualización de datos" />
         </div>
       </div>
 
@@ -121,11 +121,9 @@ const ConceptsSection = () => {
               Ejemplo: Ajustar el modelo si los patrones de compra cambian drásticamente.
             </p>
           </div>
-        </div>
+        </div>     
       </div>
-
-
-    </section>
+    </section> 
   );
 };
 

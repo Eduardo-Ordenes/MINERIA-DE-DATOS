@@ -21,7 +21,7 @@ const ToolsSection = () => {
           <a href="https://www.knime.com/" className='style-link' target="_blank">Sitio Web</a>
         </div>
         <div className="image-content">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800" alt="Herramientas de análisis" />
+          <img src="https://orangedatamining.com/_next/static/media/orange_illustration_landing.58a920f0.png" alt="Herramientas de análisis" />
         </div>
       </div>
 
@@ -34,7 +34,7 @@ const ToolsSection = () => {
           <a href="https://ml.cms.waikato.ac.nz/weka" className='style-link' target="_blank">Sitio Web</a>
         </div>
         <div className="image-content">
-          <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800" alt="Análisis avanzado" />
+          <img src="https://a0.anyrgb.com/pngimg/1640/1396/learning-analytics-data-analytics-business-analytics-predictive-analytics-google-analytics-data-analysis-big-data-web-analytics-report-analysis.png" alt="Análisis avanzado" />
         </div>
       </div>
     </section>
