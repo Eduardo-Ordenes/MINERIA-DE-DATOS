@@ -16,7 +16,7 @@ const Navigation = () => {
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
         <div className={`nav-links ${isOpen ? 'open' : ''}`}>
-          <a href="#conceptos" className="nav-link" onClick={closeMenu}>Conceptos</a>
+          <a href="#home" className="nav-link" onClick={closeMenu}>Home</a>
           <a href="#herramientas" className="nav-link" onClick={closeMenu}>Herramientas</a>
           <a href="#recursos" className="nav-link" onClick={closeMenu}>Recursos</a>
           <a href="#demostraciones" className="nav-link" onClick={closeMenu}>Demostraciones</a>
