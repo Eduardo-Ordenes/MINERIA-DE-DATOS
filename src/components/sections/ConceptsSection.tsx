@@ -8,7 +8,7 @@ const ConceptsSection = () => {
   }, []);
 
   return (
-    <section id="conceptos" className="section">
+    <section id="home" className="section">
       <h2 className="section-title" data-aos="fade-up">Minería de Datos</h2>
 
       <div className="content-block" data-aos="fade-right">
