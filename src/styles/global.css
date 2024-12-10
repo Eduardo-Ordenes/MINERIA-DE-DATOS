@@ -140,6 +140,7 @@ body {
 
 .container-texto-etapas {
   display: flex;
+  padding: 1rem;
 }
 
 .arrow {
@@ -152,6 +153,7 @@ body {
 
 .title-etapas {
   margin: 0 0 10px 0;
+  padding: 0 1rem;
   color: var(--accent-color);
 }
 
@@ -199,7 +201,7 @@ body {
 
   .container-etapas {
     width: 80vw; 
-    height: 30vh;
+    /* height: 30vh; */
     padding: 1rem; 
   }
 
@@ -234,7 +236,7 @@ body {
 
   .container-etapas {
     width: 80vw; 
-    height: 30vh;
+    /* height: 30vh; */
     padding: 1rem;
   }
 }
