@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import '../styles/Navigation.css';
 
 const Navigation = () => {
@@ -20,7 +21,7 @@ const Navigation = () => {
           <a href="#herramientas" className="nav-link" onClick={closeMenu}>Herramientas</a>
           <a href="#recursos" className="nav-link" onClick={closeMenu}>Recursos</a>
           <a href="#demostraciones" className="nav-link" onClick={closeMenu}>Demostraciones</a>
-          <a href="#graficos" className="nav-link" onClick={closeMenu}>Graficos</a>
+          <Link to="mineria/glosario" className="nav-link" onClick={closeMenu}>Glosario</Link>
         </div>
       </div>
     </nav>

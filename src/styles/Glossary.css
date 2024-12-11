@@ -1,0 +1,136 @@
+
+
+/* Section Styles */
+.section-glossary {
+  margin-bottom: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-top: 15vh;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #007bff;
+}
+
+/* Glossary Styles */
+.toggle-button {
+  /* display: block; */
+
+
+  right: 10vw;
+  position: absolute;
+
+  
+
+
+  margin: 0 auto -2rem;
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  /* margin-left: 60rem; */
+}
+
+.toggle-button:hover {
+  background-color: #0056b3;
+}
+
+.glosario-content {
+  display: none;
+}
+
+.glosario-content.active {
+  display: block;
+}
+
+.glosario-content h2 {
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+.glosario-content dl {
+  margin: 0;
+}
+
+.glosario-content dt {
+  font-weight: bold;
+  margin-top: 1rem;
+  color: #333;
+}
+
+.glosario-content dd {
+  margin-left: 0;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+   color: #333;
+  border-left: 3px solid #007bff;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hamburger {
+      display: block;
+  }
+
+  .nav-links {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+  }
+
+  .nav-links.active {
+      display: flex;
+  }
+
+  .nav-link {
+      padding: 0.5rem 0;
+  }
+  .nav-content {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .section-glossary {
+      padding: 1rem;
+  }
+  
+}
+
+@media (max-width: 480px) {
+  body {
+      padding: 10px;
+  }
+
+  .container {
+      padding: 0 10px;
+  }
+
+  .section-title {
+      font-size: 1.5rem;
+  }
+
+  .glosario-content h2 {
+      font-size: 1.25rem;
+  }
+
+  .toggle-button {
+      display: block;
+      margin: 0 auto 0rem;
+      padding: 0.5rem 1rem;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-left: 10rem;
+  }
+  
+}

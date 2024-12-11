@@ -3,6 +3,7 @@ import '../../styles/EstilosDataMining.css';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell, ScatterChart, Scatter, Sector } from 'recharts';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import NavigationForGraphsAndGlossary from './NavigationForGraphsAndGlossary ';
 
 
 const DataMiningCharts: React.FC = () => {
@@ -153,185 +154,188 @@ const DataMiningCharts: React.FC = () => {
   }, []);
 
   return (
-    <div id='graficos' className="data-mining-charts">
-      <h2 className="section-title">Grafico Interactivo</h2>
+    <>
+      <NavigationForGraphsAndGlossary />
+      <div id='graficos' className="data-mining-charts">
+        <h2 className="section-title">Grafico Interactivo</h2>
 
-      <div className="chart-container" data-aos="fade-up">
-        <h2>Algorithm Performance Comparison</h2>
-        <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={algorithmData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend onClick={(e) => setSelectedAlgorithm(e.value)} />
-            <Bar dataKey="accuracy" fill="#8884d8" name="Accuracy" />
-            <Bar dataKey="speed" fill="#82ca9d" name="Speed" />
-          </BarChart>
-        </ResponsiveContainer>
-        {selectedAlgorithm && (
-          <div className="algorithm-details">
-            <h3>{selectedAlgorithm}</h3>
-            <p>
-              {algorithmData.find(algo => algo.name === selectedAlgorithm)?.accuracy}% accuracy,{' '}
-              {algorithmData.find(algo => algo.name === selectedAlgorithm)?.speed}% speed
-            </p>
+        <div className="chart-container" data-aos="fade-up">
+          <h2>Comparación de Rendimiento de Algoritmos</h2>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={algorithmData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend onClick={(e) => setSelectedAlgorithm(e.value)} />
+              <Bar dataKey="accuracy" fill="#8884d8" name="Accuracy" />
+              <Bar dataKey="speed" fill="#82ca9d" name="Speed" />
+            </BarChart>
+          </ResponsiveContainer>
+          {selectedAlgorithm && (
+            <div className="algorithm-details">
+              <h3>{selectedAlgorithm}</h3>
+              <p>
+                {algorithmData.find(algo => algo.name === selectedAlgorithm)?.accuracy}% Precisión,{' '}
+                {algorithmData.find(algo => algo.name === selectedAlgorithm)?.speed}% Velocidad
+              </p>
+            </div>
+          )}
+          <form onSubmit={handleAddAlgorithm} className="add-data-form">
+            <input
+              type="text"
+              placeholder="Nombre del algoritmo"
+              value={newAlgorithm.name}
+              onChange={(e) => setNewAlgorithm({ ...newAlgorithm, name: e.target.value })}
+              required
+            />
+            <input
+              type="number"
+              placeholder="Precisión"
+              value={newAlgorithm.accuracy || ''}
+              onChange={(e) => setNewAlgorithm({ ...newAlgorithm, accuracy: Number(e.target.value) })}
+              required
+            />
+            <input
+              type="number"
+              placeholder="Velocidad"
+              value={newAlgorithm.speed || ''}
+              onChange={(e) => setNewAlgorithm({ ...newAlgorithm, speed: Number(e.target.value) })}
+              required
+            />
+            <button type="submit">Agregar algoritmo</button>
+          </form>
+          <div className="data-actions">
+            <button onClick={handleResetAlgorithmData}>Reiniciar datos</button>
           </div>
-        )}
-        <form onSubmit={handleAddAlgorithm} className="add-data-form">
-          <input
-            type="text"
-            placeholder="Algorithm Name"
-            value={newAlgorithm.name}
-            onChange={(e) => setNewAlgorithm({ ...newAlgorithm, name: e.target.value })}
-            required
-          />
-          <input
-            type="number"
-            placeholder="Accuracy"
-            value={newAlgorithm.accuracy || ''}
-            onChange={(e) => setNewAlgorithm({ ...newAlgorithm, accuracy: Number(e.target.value) })}
-            required
-          />
-          <input
-            type="number"
-            placeholder="Speed"
-            value={newAlgorithm.speed || ''}
-            onChange={(e) => setNewAlgorithm({ ...newAlgorithm, speed: Number(e.target.value) })}
-            required
-          />
-          <button type="submit">Add Algorithm</button>
-        </form>
-        <div className="data-actions">
-          <button onClick={handleResetAlgorithmData}>Reset Data</button>
+          <div className="data-list">
+            {algorithmData.map((algo) => (
+              <div key={algo.name} className="data-item">
+                <span>{algo.name}</span>
+                <button onClick={() => handleDeleteAlgorithm(algo.name)}>Eliminar</button>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="data-list">
-          {algorithmData.map((algo) => (
-            <div key={algo.name} className="data-item">
-              <span>{algo.name}</span>
-              <button onClick={() => handleDeleteAlgorithm(algo.name)}>Delete</button>
-            </div>
-          ))}
-        </div>
-      </div>
 
-      <div className="chart-container">
-        <h2>Data Growth Over Time</h2>
-        <ResponsiveContainer width="100%" height={300}>
-          <LineChart data={dataGrowthData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="year" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Line type="monotone" dataKey="dataVolume" stroke="#8884d8" name="Data Volume (ZB)" activeDot={{ r: 8 }} />
-          </LineChart>
-        </ResponsiveContainer>
-        <form onSubmit={handleAddDataGrowth} className="add-data-form">
-          <input
-            type="number"
-            placeholder="Year"
-            value={newDataGrowth.year || ''}
-            onChange={(e) => setNewDataGrowth({ ...newDataGrowth, year: Number(e.target.value) })}
-            required
-          />
-          <input
-            type="number"
-            placeholder="Data Volume"
-            value={newDataGrowth.dataVolume || ''}
-            onChange={(e) => setNewDataGrowth({ ...newDataGrowth, dataVolume: Number(e.target.value) })}
-            required
-          />
-          <button type="submit">Add Data Point</button>
-        </form>
-        <div className="data-actions">
-          <button onClick={handleResetDataGrowthData}>Reset Data</button>
+        <div className="chart-container">
+          <h2>Crecimiento de Datos en el Tiempo</h2>
+          <ResponsiveContainer width="100%" height={300}>
+            <LineChart data={dataGrowthData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="year" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Line type="monotone" dataKey="dataVolume" stroke="#8884d8" name="Volumen de datos (ZB)" activeDot={{ r: 8 }} />
+            </LineChart>
+          </ResponsiveContainer>
+          <form onSubmit={handleAddDataGrowth} className="add-data-form">
+            <input
+              type="number"
+              placeholder="Año"
+              value={newDataGrowth.year || ''}
+              onChange={(e) => setNewDataGrowth({ ...newDataGrowth, year: Number(e.target.value) })}
+              required
+            />
+            <input
+              type="number"
+              placeholder="Volumen de datos"
+              value={newDataGrowth.dataVolume || ''}
+              onChange={(e) => setNewDataGrowth({ ...newDataGrowth, dataVolume: Number(e.target.value) })}
+              required
+            />
+            <button type="submit">Agregar punto de datos</button>
+          </form>
+          <div className="data-actions">
+            <button onClick={handleResetDataGrowthData}>Reiniciar datos</button>
+          </div>
+          <div className="data-list">
+            {dataGrowthData.map((data) => (
+              <div key={data.year} className="data-item">
+                <span>{data.year}: {data.dataVolume} ZB</span>
+                <button onClick={() => handleDeleteDataGrowth(data.year)}>Eliminar</button>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="data-list">
-          {dataGrowthData.map((data) => (
-            <div key={data.year} className="data-item">
-              <span>{data.year}: {data.dataVolume} ZB</span>
-              <button onClick={() => handleDeleteDataGrowth(data.year)}>Delete</button>
-            </div>
-          ))}
-        </div>
-      </div>
 
-      <div className="chart-container">
-        <h2>Data Types Distribution</h2>
-        <ResponsiveContainer width="100%" height={300}>
-          <PieChart>
-            <Pie
-              activeIndex={activeIndex}
-              activeShape={renderActiveShape}
-              data={dataTypesData}
-              cx="50%"
-              cy="50%"
-              innerRadius={60}
-              outerRadius={80}
-              fill="#8884d8"
-              dataKey="value"
-              onMouseEnter={onPieEnter}
-            >
-              {dataTypesData.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-              ))}
-            </Pie>
-          </PieChart>
-        </ResponsiveContainer>
-      </div>
+        <div className="chart-container">
+          <h2>Distribucción de tipos de datos</h2>
+          <ResponsiveContainer width="100%" height={300}>
+            <PieChart>
+              <Pie
+                activeIndex={activeIndex}
+                activeShape={renderActiveShape}
+                data={dataTypesData}
+                cx="50%"
+                cy="50%"
+                innerRadius={60}
+                outerRadius={80}
+                fill="#8884d8"
+                dataKey="value"
+                onMouseEnter={onPieEnter}
+              >
+                {dataTypesData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                ))}
+              </Pie>
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
 
-      <div className="chart-container">
-        <h2>Clustering Visualization</h2>
-        <ResponsiveContainer width="100%" height={300}>
-          <ScatterChart>
-            <CartesianGrid />
-            <XAxis type="number" dataKey="x" name="X" />
-            <YAxis type="number" dataKey="y" name="Y" />
-            <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-            <Legend />
-            <Scatter name="Cluster A" data={clusterData.filter(d => d.cluster === 'A')} fill="#8884d8" />
-            <Scatter name="Cluster B" data={clusterData.filter(d => d.cluster === 'B')} fill="#82ca9d" />
-            <Scatter name="Cluster C" data={clusterData.filter(d => d.cluster === 'C')} fill="#ffc658" />
-          </ScatterChart>
-        </ResponsiveContainer>
-        <form onSubmit={handleAddClusterPoint} className="add-data-form">
-          <input
-            type="number"
-            placeholder="X Coordinate"
-            value={newClusterPoint.x || ''}
-            onChange={(e) => setNewClusterPoint({ ...newClusterPoint, x: Number(e.target.value) })}
-            required
-          />
-          <input
-            type="number"
-            placeholder="Y Coordinate"
-            value={newClusterPoint.y || ''}
-            onChange={(e) => setNewClusterPoint({ ...newClusterPoint, y: Number(e.target.value) })}
-            required
-          />
-          <input
-            type="text"
-            placeholder="Cluster (A, B, or C)"
-            value={newClusterPoint.cluster}
-            onChange={(e) => setNewClusterPoint({ ...newClusterPoint, cluster: e.target.value })}
-            required
-          />
-          <button type="submit">Add Cluster Point</button>
-        </form>
-        <div className="data-actions">
-          <button onClick={handleResetClusterData}>Reset Data</button>
-        </div>
-        <div className="data-list">
-          {clusterData.map((point, index) => (
-            <div key={index} className="data-item">
-              <span>({point.x}, {point.y}) - Cluster {point.cluster}</span>
-              <button onClick={() => handleDeleteClusterPoint(point.x, point.y)}>Delete</button>
-            </div>
-          ))}
+        <div className="chart-container">
+          <h2>Visualización Clustering</h2>
+          <ResponsiveContainer width="100%" height={300}>
+            <ScatterChart>
+              <CartesianGrid />
+              <XAxis type="number" dataKey="x" name="X" />
+              <YAxis type="number" dataKey="y" name="Y" />
+              <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+              <Legend />
+              <Scatter name="Cluster A" data={clusterData.filter(d => d.cluster === 'A')} fill="#8884d8" />
+              <Scatter name="Cluster B" data={clusterData.filter(d => d.cluster === 'B')} fill="#82ca9d" />
+              <Scatter name="Cluster C" data={clusterData.filter(d => d.cluster === 'C')} fill="#ffc658" />
+            </ScatterChart>
+          </ResponsiveContainer>
+          <form onSubmit={handleAddClusterPoint} className="add-data-form">
+            <input
+              type="number"
+              placeholder="Coordenada X"
+              value={newClusterPoint.x || ''}
+              onChange={(e) => setNewClusterPoint({ ...newClusterPoint, x: Number(e.target.value) })}
+              required
+            />
+            <input
+              type="number"
+              placeholder="Coordenada Y"
+              value={newClusterPoint.y || ''}
+              onChange={(e) => setNewClusterPoint({ ...newClusterPoint, y: Number(e.target.value) })}
+              required
+            />
+            <input
+              type="text"
+              placeholder="Cluster (A, B, o C)"
+              value={newClusterPoint.cluster}
+              onChange={(e) => setNewClusterPoint({ ...newClusterPoint, cluster: e.target.value })}
+              required
+            />
+            <button type="submit">Agregar punto de Cluster </button>
+          </form>
+          <div className="data-actions">
+            <button onClick={handleResetClusterData}>Reiniciar datos</button>
+          </div>
+          <div className="data-list">
+            {clusterData.map((point, index) => (
+              <div key={index} className="data-item">
+                <span>({point.x}, {point.y}) - Cluster {point.cluster}</span>
+                <button onClick={() => handleDeleteClusterPoint(point.x, point.y)}>Eliminar</button>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
