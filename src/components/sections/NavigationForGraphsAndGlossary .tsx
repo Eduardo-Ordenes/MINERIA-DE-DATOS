@@ -36,7 +36,7 @@ const NavigationForGraphsAndGlossary = () => {
             className={`nav-link ${location.pathname === '/mineria/graficos' ? 'active' : ''}`}
             onClick={() => handleLinkClick('/mineria/graficos')}
           >
-            Gráficos
+            Ejercicio Practico
           </Link>
           <Link
             to="/mineria/glosario"  
