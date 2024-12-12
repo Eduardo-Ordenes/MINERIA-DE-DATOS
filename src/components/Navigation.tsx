@@ -8,7 +8,7 @@ const Navigation = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  const closeMenu = () => setIsOpen(false); // Cierra el menú
+  const closeMenu = () => setIsOpen(false); 
 
   return (
     <nav className="nav">

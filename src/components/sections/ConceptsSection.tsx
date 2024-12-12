@@ -33,7 +33,6 @@ const ConceptsSection = () => {
           <div className="container-texto-etapas">
             <p>Descripción: Se identifica el objetivo del análisis y las preguntas clave que se desean responder.
               Ejemplo: En una tienda en línea, el objetivo podría ser predecir qué productos comprarán los clientes.
-
             </p>
           </div>
         </div>
