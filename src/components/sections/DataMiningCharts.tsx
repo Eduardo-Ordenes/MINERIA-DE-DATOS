@@ -168,8 +168,8 @@ const DataMiningCharts: React.FC = () => {
               <YAxis />
               <Tooltip />
               <Legend onClick={(e) => setSelectedAlgorithm(e.value)} />
-              <Bar dataKey="accuracy" fill="#8884d8" name="Accuracy" />
-              <Bar dataKey="speed" fill="#82ca9d" name="Speed" />
+              <Bar dataKey="accuracy" fill="#8884d8" name="Presicion" />
+              <Bar dataKey="speed" fill="#82ca9d" name="Velocidad" />
             </BarChart>
           </ResponsiveContainer>
           {selectedAlgorithm && (

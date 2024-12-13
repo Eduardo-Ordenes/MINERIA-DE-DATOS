@@ -15,8 +15,18 @@ const ResourcesSection = () => {
         <div className="text-content">
           <h3>Bases de Datos Públicas</h3>
           <ul>
-            <li><a href="https://www.kaggle.com/datasets" className='style-link' target="_blank" rel="noopener noreferrer">Kaggle Datasets</a></li>
-            <li><a href="https://archive.ics.uci.edu/ml/index.php" className='style-link' target="_blank" rel="noopener noreferrer">UCI Machine Learning Repository</a></li>
+            <li><a href="https://www.kaggle.com/datasets" className='style-link' target="_blank" rel="noopener noreferrer">UCI Machine Learning Repository</a></li>
+            <a>Una de las fuentes más populares para conjuntos de datos relacionados con aprendizaje automático y minería de datos.</a>
+            <li><a href="https://data.europa.eu" className='style-link' target="_blank" rel="noopener noreferrer">Datos abiertos de la Unión Europea</a></li>
+            <a>Proporciona acceso a millones de conjuntos de datos relacionados con economía, medio ambiente, salud y otros temas de interés europeo. </a>
+            <li><a href="https://www.inegi.org.mx/datosabiertos/" className='style-link' target="_blank" rel="noopener noreferrer">INEGI (México)</a></li>
+            <a>Información estadística y geográfica con formatos abiertos, útil para análisis demográficos, económicos y sociales en México.</a>
+            <li><a href="https://registry.opendata.aws/" className='style-link' target="_blank" rel="noopener noreferrer">AWS Open Data Registry</a></li>
+            <a>Un registro de conjuntos de datos abiertos alojados en AWS, que incluye temas como genómica, clima y datos sociales</a>
+            <li><a href="https://data.worldbank.org" className='style-link' target="_blank" rel="noopener noreferrer">World Bank Data</a></li>
+            <a>Base de datos mundial que proporciona información económica y social organizada por país.</a>
+            <li><a href="https://www.data.gov" className='style-link' target="_blank" rel="noopener noreferrer">Data.gov (EE.UU.)</a></li>
+            <a>Una plataforma gubernamental que ofrece datos sobre economía, educación, salud, medio ambiente y más.</a>
           </ul>
         </div>
         <div className="image-content">

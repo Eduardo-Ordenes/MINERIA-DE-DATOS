@@ -14,7 +14,6 @@ const ToolsSection = () => {
       
       <div className="content-block" data-aos="fade-right">
         <div className="text-content" >
-          <h3>Software Especializado</h3>
           <p><strong>Orange:</strong> Herramienta visual de minería de datos que permite crear flujos de trabajo mediante programación visual. Ideal para principiantes y expertos.</p>
           <a href="https://orangedatamining.com/" className='style-link' target="_blank">Sitio Web</a>
           <p><strong>KNIME:</strong> Plataforma de análisis de datos que facilita la creación de flujos de trabajo complejos sin necesidad de programación.</p>
@@ -27,7 +26,6 @@ const ToolsSection = () => {
 
       <div className="content-block reverse" data-aos="fade-left">
         <div className="text-content">
-          <h3>Herramientas Avanzadas</h3>
           <p><strong>RapidMiner:</strong> Plataforma integral que cubre todo el ciclo de vida del análisis de datos, desde la preparación hasta el despliegue de modelos.</p>
           <a href="https://docs.rapidminer.com/" className='style-link' target="_blank">Sitio Web</a>
           <p><strong>Weka:</strong> Colección de algoritmos de aprendizaje automático para tareas de minería de datos, desarrollada por la Universidad de Waikato.</p>
