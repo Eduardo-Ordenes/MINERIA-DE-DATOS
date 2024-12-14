@@ -17,10 +17,16 @@ h1 {
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-p{
+
+.data-mining-charts p{
   color: #444;
 }
-h2 {
+
+.section-title {
+  color: #007bff !important;
+}
+
+.data-mining-charts h2 {
   color: #444;
   margin-bottom: 20px;
 }
