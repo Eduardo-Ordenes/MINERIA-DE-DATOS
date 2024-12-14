@@ -21,138 +21,139 @@ const Glossary = () => {
     <div className='container'>
     <section id="glosario" className="section-glossary">
       <button id="toggleView" className="toggle-button" onClick={handleToggleView}>
-        {isBasicoActive ? 'Glosario Básico' : 'Glosario Avanzado'}
+        {isBasicoActive ? 'Glosario Avanzado' : 'Glosario Basico'}
       </button>
 
       <div id="basico" className={`glosario-content ${isBasicoActive ? 'active' : ''}`}>
         <h1 className="section-title">Glosario de Minería de Datos</h1>
-        <h2>Glosario Básico</h2>
+        <h2>Conceptos Básicos</h2>
         <dl>
           <dt>Minería de Datos</dt>
-          <dd>Proceso de descubrir patrones en grandes conjuntos de datos.</dd>
+          <dd>Proceso de extraer información útil y patrones significativos de grandes conjuntos de datos.
+          </dd>
 
-          <dt>Big Data</dt>
-          <dd>Conjuntos de datos muy grandes o complejos que son difíciles de manejar con herramientas tradicionales.</dd>
+          <dt>Base de Datos</dt>
+          <dd>Conjunto organizado de datos almacenados electrónicamente que se utiliza como fuente para la minería de datos.</dd>
 
-          <dt>ETL</dt>
-          <dd>Proceso para preparar datos: extraerlos, limpiarlos y transformarlos antes de analizarlos.</dd>
+          <dt>Dataset (Conjunto de Datos)</dt>
+          <dd>Colección estructurada de datos que se utiliza para análisis.</dd>
 
-          <dt>Clustering</dt>
-          <dd>Agrupación de datos similares en conjuntos o un Método para agrupar datos similares entre sí</dd>
+          <dt>Preprocesamiento de Datos</dt>
+          <dd>Etapa inicial en la que los datos son limpiados y transformados para garantizar su calidad y consistencia.</dd>
+
+          <dt>Normalización</dt>
+          <dd>Escalado de las variables para que estén en un rango comparable.</dd>
 
           <dt>Clasificación</dt>
-          <dd>Técnica para categorizar datos en grupos predefinidos.</dd>
+          <dd>Técnica de minería de datos para predecir una categoría a la que pertenece un dato.</dd>
+
+          <dt>Clúster (Agrupamiento)</dt>
+          <dd>Proceso de agrupar datos similares basándose en ciertas características comunes.</dd>
 
           <dt>Regresión</dt>
-          <dd>Técnica para predecir valores continuos a partir de datos históricos.</dd>
+          <dd>Método que predice valores numéricos continuos a partir de datos existentes.</dd>
 
-          <dt>Limpieza de datos</dt>
-          <dd>Proceso de eliminar o corregir datos incorrectos o incompletos.</dd>
+          <dt>Patrones</dt>
+          <dd>Relaciones recurrentes entre datos que tienen relevancia estadística.</dd>
 
-          <dt>Frecuencia de ítems</dt>
-          <dd>Técnica para encontrar asociaciones entre productos o eventos.</dd>
+          <dt>Overfitting (Sobreajuste)</dt>
+          <dd>Fenómeno en el que un modelo se adapta demasiado a los datos de entrenamiento, pero no generaliza bien.</dd>
 
-          <dt>Algoritmos supervisados</dt>
-          <dd>Algoritmos que usan datos etiquetados para entrenar modelos predictivos.</dd>
+          <dt>Submuestreo (Under Sampling)</dt>
+          <dd>Reducción de datos de una clase para equilibrar un conjunto de datos desbalanceado.</dd>
 
-          <dt>Algoritmos no supervisados</dt>
-          <dd>Modelos que analizan datos sin etiquetas para encontrar patrones.</dd>
+          <dt>Muestreo</dt>
+          <dd> Proceso de seleccionar una parte representativa de los datos para análisis.</dd>
 
-          <dt>Reducción de dimensionalidad</dt>
-          <dd>Métodos como PCA o LDA preservan la varianza más importante de los datos mientras eliminan redundancia.</dd>
+          <dt>Validación Cruzada</dt>
+          <dd>Método para evaluar la precisión de un modelo dividiendo el conjunto de datos en partes de entrenamiento y prueba.</dd>
 
-          <dt>Overfitting</dt>
-          <dd>Cuando un modelo aprende demasiado de los datos de entrenamiento y no generaliza bien.</dd>
+          <dt>Frecuencia de Atributo</dt>
+          <dd>Número de veces que un atributo o característica aparece en los datos.</dd>
 
-          <dt>Underfitting</dt>
-          <dd>Cuando un modelo no capta los patrones subyacentes de los datos.</dd>
+          <dt>Limpieza de Datos</dt>
+          <dd>Eliminación de valores atípicos, inconsistencias y datos faltantes.</dd>
 
-          <dt>Aprendizaje automático</dt>
-          <dd>Uso de algoritmos que aprenden patrones automáticamente de los datos.</dd>
+          <dt>Algoritmo</dt>
+          <dd>Conjunto de reglas o procesos utilizados para realizar cálculos y predicciones en minería de datos.</dd>
 
-          <dt>Validación cruzada</dt>
-          <dd>Técnica para evaluar un modelo dividiendo los datos en conjuntos de entrenamiento y prueba.</dd>
+          <dt>Atributo (Variable)</dt>
+          <dd>Propiedad o característica específica de un dato en un conjunto de datos.</dd>
 
-          <dt>Métricas de evaluación</dt>
-          <dd>Valores que indican el rendimiento de un modelo</dd>
+          <dt>Regla de Asociación</dt>
+          <dd>Método para identificar relaciones entre variables en grandes conjuntos de datos.</dd>
 
-          <dt>Outliers</dt>
-          <dd>Datos que son muy diferentes al resto.</dd>
+          <dt>Visualización de Datos</dt>
+          <dd>Representación gráfica de datos para facilitar su interpretación.</dd>
 
-          <dt>Data Warehouse</dt>
-          <dd>Repositorio centralizado para almacenar datos estructurados.</dd>
-
-          <dt>Deep Learning</dt>
-          <dd>Subcampo del machine learning basado en redes neuronales profundas.</dd>
-
-          <dt>Text Mining</dt>
-          <dd>Análisis de texto para extraer información útil.</dd>
+          <dt>Big Data</dt>
+          <dd>Grandes volúmenes de datos que requieren tecnologías avanzadas para ser procesados y analizados.</dd>
         </dl>
       </div>
 
       <div id="avanzado" className={`glosario-content ${!isBasicoActive ? 'active' : ''}`}>
-        <h1 className="section-title">Glosario de Minería de Datos Avanzado</h1>
-        <h2>Glosario Avanzado</h2>
+        <h1 className="section-title">Glosario de Minería de Datos</h1>
+        <h2>Conceptos Avanzados</h2>
         <dl>
-          <dt>Minería de Datos</dt>
-          <dd>Es un subconjunto de la ciencia de datos que utiliza técnicas estadísticas, matemáticas y de aprendizaje automático para extraer conocimiento implícito, previamente desconocido y potencialmente útil</dd>
+          <dt>Aprendizaje Supervisado</dt>
+          <dd>Técnica de minería de datos donde el modelo se entrena con datos etiquetados para predecir valores o categorías.</dd>
 
-          <dt>Big Data</dt>
-          <dd>Se caracteriza por las 4Vs: Volumen, Velocidad, Variedad y Veracidad. En minería de datos, las técnicas deben ser escalables y eficientes para procesar estas dimensiones.</dd>
+          <dt>Aprendizaje No Supervisado</dt>
+          <dd>Técnica donde no se utilizan etiquetas en los datos; el objetivo es descubrir patrones ocultos.</dd>
 
-          <dt>ETL</dt>
-          <dd>Implica aplicar reglas de negocio, consolidar datos de múltiples fuentes y almacenarlos en un almacén de datos optimizado para minería.</dd>
+          <dt>Aprendizaje Semi-Supervisado</dt>
+          <dd>Combina datos etiquetados y no etiquetados para mejorar el entrenamiento del modelo.</dd>
 
-          <dt>Clustering</dt>
-          <dd>Utiliza algoritmos como K-means, DBSCAN o métodos jerárquicos. Evalúa la calidad del agrupamiento usando métricas como la silueta o el índice de Dunn.</dd>
+          <dt>Algoritmo K-Means</dt>
+          <dd>Algoritmo de agrupamiento que divide los datos en clústeres basados en proximidad.</dd>
 
-          <dt>Clasificación</dt>
-          <dd>Usa algoritmos supervisados como árboles de decisión, SVM o redes neuronales para maximizar métricas como precisión, recall y F1-score.</dd>
+          <dt>Árbol de Decisión</dt>
+          <dd>Modelo predictivo basado en una estructura de árbol que divide los datos en subconjuntos basados en reglas.</dd>
 
-          <dt>Regresión</dt>
-          <dd>Incluye técnicas lineales y no lineales, como la regresión polinómica y regularizada (Lasso, Ridge). Evalúa el modelo con métricas como RMSE o R².</dd>
+          <dt>Bosques Aleatorios (Random Forest)</dt>
+          <dd>Algoritmo de ensamblaje que combina múltiples árboles de decisión para mejorar la precisión.</dd>
 
-          <dt>Limpieza de datos</dt>
-          <dd>Incluye detección de valores atípicos, imputación de datos faltantes y normalización usando métodos estadísticos avanzados.</dd>
+          <dt>Gradient Boosting</dt>
+          <dd>Técnica de aprendizaje que construye modelos predictivos en secuencia para minimizar errores.</dd>
 
-          <dt>Frecuencia de ítems</dt>
-          <dd>Utiliza medidas como soporte, confianza y lift para evaluar reglas de asociación en grandes bases transaccionales.</dd>
+          <dt>Red Neuronal Artificial (RNA)</dt>
+          <dd>Modelo inspirado en el cerebro humano, compuesto por capas de neuronas artificiales para el aprendizaje profundo.</dd>
 
-          <dt>Algoritmos supervisados</dt>
-          <dd>Incluyen técnicas como Boosting (ej. XGBoost) y Bagging (ej. Random Forest) para mejorar la precisión.</dd>
+          <dt>Deep Learning (Aprendizaje Profundo)</dt>
+          <dd>Subcampo del aprendizaje automático que utiliza redes neuronales profundas para tareas complejas.</dd>
 
-          <dt>Algoritmos no supervisados</dt>
-          <dd>Aplican PCA, T-SNE o UMAP para reducción de dimensionalidad y clustering jerárquico.</dd>
+          <dt>SVM (Máquinas de Vectores de Soporte)</dt>
+          <dd>Algoritmo utilizado para clasificación y regresión que encuentra un hiperplano óptimo en los datos.</dd>
 
-          <dt>Reducción de dimensionalidad</dt>
-          <dd>Métodos como PCA o LDA preservan la varianza más importante de los datos mientras eliminan redundancia.</dd>
+          <dt>Clúster Jerárquico</dt>
+          <dd>Método de agrupamiento que organiza los datos en una estructura jerárquica (árbol dendrograma).</dd>
 
-          <dt>Overfitting</dt>
-          <dd>Ocurre cuando un modelo aprende demasiado de los datos de entrenamiento. Se combate con regularización, validación cruzada y dropout.</dd>
+          <dt>Análisis de Componentes Principales (PCA)</dt>
+          <dd>Técnica para reducir la dimensionalidad de los datos conservando la mayor variabilidad posible.</dd>
 
-          <dt>Underfitting</dt>
-          <dd>Indica un modelo demasiado simple. Solución: aumentar la complejidad o ajustar parámetros.</dd>
+          <dt>AUC (Área Bajo la Curva)</dt>
+          <dd>Métrica que evalúa el rendimiento de un modelo basado en la relación entre sensibilidad y especificidad.</dd>
 
-          <dt>Aprendizaje automático</dt>
-          <dd>Incluye enfoques supervisados, no supervisados y semi-supervisados para tareas como predicción, clasificación y clustering.</dd>
+          <dt>Regularización</dt>
+          <dd>Técnica para prevenir el sobreajuste penalizando coeficientes grandes en un modelo.</dd>
 
-          <dt>Validación cruzada</dt>
-          <dd>Métodos como K-Fold o Leave-One-Out estiman la capacidad de generalización de un modelo.</dd>
+          <dt>Matriz de Confusión</dt>
+          <dd>Herramienta para evaluar el rendimiento de un modelo de clasificación mostrando verdaderos y falsos positivos y negativos.</dd>
 
-          <dt>Métricas de evaluación</dt>
-          <dd>Métricas avanzadas como ROC-AUC, F1-score para clasificación, y RMSE o MAE para regresión.</dd>
+          <dt>Optimización de Hiper Parámetros</dt>
+          <dd>Proceso de ajustar los parámetros del modelo para maximizar su rendimiento.</dd>
 
-          <dt>Outliers</dt>
-          <dd>Técnica para predecir valores continuos a partir de datos históricos.</dd>
+          <dt>Análisis de Sentimientos</dt>
+          <dd>Técnica para extraer emociones o actitudes de datos textuales.</dd>
 
-          <dt>Data Warehouse</dt>
-          <dd>Optimizado para consultas rápidas con soporte para esquemas como estrella o copo de nieve.</dd>
+          <dt>Text Mining (Minería de Textos)</dt>
+          <dd>Proceso de extraer patrones útiles de datos no estructurados como textos.</dd>
 
-          <dt>Deep Learning</dt>
-          <dd>Aplicado en tareas avanzadas como procesamiento de imágenes y texto, usando arquitecturas como CNN, RNN o Transformers.</dd>
+          <dt>Clustering DBSCAN</dt>
+          <dd>Algoritmo de agrupamiento basado en densidad que identifica clústeres de forma arbitraria.</dd>
 
-          <dt>Text Mining</dt>
-          <dd>Técnicas como modelado de temas (LDA), extracción de entidades y embeddings de palabras (Word2Vec, BERT).</dd>
+          <dt>Algoritmos Evolutivos</dt>
+          <dd>Métodos de optimización inspirados en la evolución biológica, como los algoritmos genéticos.</dd>
         </dl>
       </div>
     </section>

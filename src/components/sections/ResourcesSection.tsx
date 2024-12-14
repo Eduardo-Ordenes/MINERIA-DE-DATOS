@@ -9,7 +9,7 @@ const ResourcesSection = () => {
 
   return (
     <section id="recursos" className="section">
-      <h2 className="section-title">Recursos y Aplicaciones</h2>
+      <h2 className="section-title">Recursos</h2>
       
       <div className="content-block" data-aos="fade-up-right">
         <div className="text-content">

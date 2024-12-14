@@ -49,10 +49,17 @@ const DataMiningCharts: React.FC = () => {
 
   // Sample data for data types distribution (unchanged)
   const dataTypesData = [
-    { name: 'Structured', value: 20 },
-    { name: 'Semi-structured', value: 30 },
-    { name: 'Unstructured', value: 50 },
+    { name: 'Iris-setosa', value: 50 },
+    { name: 'Iris-versicolor', value: 50 },
+    { name: 'Iris-virginica', value: 50 },
   ];
+
+  const dataTypes = [
+    { name: 'Iris-setosa', value: 50 },
+    { name: 'Iris-versicolor', value: 48 },
+    { name: 'Iris-virginica', value: 52 },
+  ];
+
 
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884D8'];
 
@@ -160,8 +167,144 @@ const DataMiningCharts: React.FC = () => {
         <h2 className="section-title">Grafico Interactivo</h2>
 
         <div className="chart-container" data-aos="fade-up">
-          <h2>Comparación de Rendimiento de Algoritmos</h2>
+          <h2>Análisis de clasificación simple</h2>
+          <p>El análisis de clasificación es una técnica fundamental en minería de datos. Nos permite categorizar elementos en diferentes clases basándonos en sus características. Para este ejemplo utilizaremos el conjunto de datos Iris, que incluye información sobre las medidas de tres especies de flores: setosa, versicolor y virginica. Nuestro objetivo será entrenar un modelo que pueda predecir correctamente la especie de una flor desconocida usando sus medidas, estas son la longitud y ancho del pétalo y del sépalo.
+            Empleando Orange Data Mining, lo que haremos será: cargar los datos, explorar sus características, entrenar un modelo de regresión logística, y evaluar su rendimiento con métricas estándar como precisión y F1 score. No sólo veremos cómo implementar un modelo de clasificación, sino que además entenderemos cómo evaluar su efectividad.
+            <h3>Objetivo:</h3>
+            <p>Clasificar flores en el conjunto de datos Iris basado en sus características.</p>
+            <h3>Pasos:</h3>
+            <ol>
+              <li>
+                <strong>Cargar datos:</strong>
+                <ul>
+                  <li>Arrastra el widget <strong>File</strong> al lienzo y selecciona el archivo <code>iris.tab</code> (disponible por defecto en Orange).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Previsualizar datos:</strong>
+                <ul>
+                  <li>Conecta el widget <strong>File</strong> al widget <strong>Data Table</strong> para visualizar las características y las clases de las flores.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Entrenar un modelo:</strong>
+                <ul>
+                  <li>Arrastra el widget <strong>Logistic Regression</strong> al lienzo.</li>
+                  <li>Conecta <strong>File → Logistic Regression</strong>.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Evaluar el modelo:</strong>
+                <ul>
+                  <li>Arrastra el widget <strong>Test &amp; Score</strong>.</li>
+                  <li>Conecta <strong>File → Test &amp; Score</strong> y <strong>Logistic Regression → Test &amp; Score</strong>.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Resultados:</strong>
+                <ul>
+                  <li>Observa las métricas de rendimiento (precisión, F1 score, etc.) en el widget <strong>Test &amp; Score</strong>.</li>
+                  <br></br>
+                </ul>
+              </li>
+            </ol>
+
+          </p>
+
+          <div className="chart-container">
+            <p><h3>Datos Reales</h3></p>
           <ResponsiveContainer width="100%" height={300}>
+            <PieChart>
+              <Pie
+                activeIndex={activeIndex}
+                activeShape={renderActiveShape}
+                data={dataTypesData}
+                cx="50%"
+                cy="50%"
+                innerRadius={60}
+                outerRadius={80}
+                fill="#8884d8"
+                dataKey="value"
+                onMouseEnter={onPieEnter}
+              >
+                {dataTypesData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                ))}
+              </Pie>
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+
+
+        <div className="chart-container">
+        <p><h3>Datos Predicción</h3></p>
+          <ResponsiveContainer width="100%" height={300}>
+            <PieChart>
+              <Pie
+                activeIndex={activeIndex}
+                activeShape={renderActiveShape}
+                data={dataTypes}
+                cx="50%"
+                cy="50%"
+                innerRadius={60}
+                outerRadius={80}
+                fill="#8884d8"
+                dataKey="value"
+                onMouseEnter={onPieEnter}
+              >
+                {dataTypes.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                ))}
+              </Pie>
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+        </div>
+
+        <div className="chart-container">
+          <h2>Crecimiento de Datos en el Tiempo</h2>
+          <ResponsiveContainer width="100%" height={300}>
+            <LineChart data={dataGrowthData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="year" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Line type="monotone" dataKey="dataVolume" stroke="#8884d8" name="Volumen de datos (ZB)" activeDot={{ r: 8 }} />
+            </LineChart>
+          </ResponsiveContainer>
+          <form onSubmit={handleAddDataGrowth} className="add-data-form">
+            <input
+              type="number"
+              placeholder="Año"
+              value={newDataGrowth.year || ''}
+              onChange={(e) => setNewDataGrowth({ ...newDataGrowth, year: Number(e.target.value) })}
+              required
+            />
+            <input
+              type="number"
+              placeholder="Volumen de datos"
+              value={newDataGrowth.dataVolume || ''}
+              onChange={(e) => setNewDataGrowth({ ...newDataGrowth, dataVolume: Number(e.target.value) })}
+              required
+            />
+            <button type="submit">Agregar punto de datos</button>
+          </form>
+          <div className="data-actions">
+            <button onClick={handleResetDataGrowthData}>Reiniciar datos</button>
+          </div>
+          <div className="data-list">
+            {dataGrowthData.map((data) => (
+              <div key={data.year} className="data-item">
+                <span>{data.year}: {data.dataVolume} ZB</span>
+                <button onClick={() => handleDeleteDataGrowth(data.year)}>Eliminar</button>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="chart-container">
+        <ResponsiveContainer width="100%" height={300}>
             <BarChart data={algorithmData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" />
@@ -216,72 +359,6 @@ const DataMiningCharts: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="chart-container">
-          <h2>Crecimiento de Datos en el Tiempo</h2>
-          <ResponsiveContainer width="100%" height={300}>
-            <LineChart data={dataGrowthData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="year" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              <Line type="monotone" dataKey="dataVolume" stroke="#8884d8" name="Volumen de datos (ZB)" activeDot={{ r: 8 }} />
-            </LineChart>
-          </ResponsiveContainer>
-          <form onSubmit={handleAddDataGrowth} className="add-data-form">
-            <input
-              type="number"
-              placeholder="Año"
-              value={newDataGrowth.year || ''}
-              onChange={(e) => setNewDataGrowth({ ...newDataGrowth, year: Number(e.target.value) })}
-              required
-            />
-            <input
-              type="number"
-              placeholder="Volumen de datos"
-              value={newDataGrowth.dataVolume || ''}
-              onChange={(e) => setNewDataGrowth({ ...newDataGrowth, dataVolume: Number(e.target.value) })}
-              required
-            />
-            <button type="submit">Agregar punto de datos</button>
-          </form>
-          <div className="data-actions">
-            <button onClick={handleResetDataGrowthData}>Reiniciar datos</button>
-          </div>
-          <div className="data-list">
-            {dataGrowthData.map((data) => (
-              <div key={data.year} className="data-item">
-                <span>{data.year}: {data.dataVolume} ZB</span>
-                <button onClick={() => handleDeleteDataGrowth(data.year)}>Eliminar</button>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="chart-container">
-          <h2>Distribucción de tipos de datos</h2>
-          <ResponsiveContainer width="100%" height={300}>
-            <PieChart>
-              <Pie
-                activeIndex={activeIndex}
-                activeShape={renderActiveShape}
-                data={dataTypesData}
-                cx="50%"
-                cy="50%"
-                innerRadius={60}
-                outerRadius={80}
-                fill="#8884d8"
-                dataKey="value"
-                onMouseEnter={onPieEnter}
-              >
-                {dataTypesData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                ))}
-              </Pie>
-            </PieChart>
-          </ResponsiveContainer>
         </div>
 
         <div className="chart-container">
