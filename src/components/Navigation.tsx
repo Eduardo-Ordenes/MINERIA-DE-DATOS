@@ -20,7 +20,7 @@ const Navigation = () => {
           <a href="#home" className="nav-link" onClick={closeMenu}>Home</a>
           <a href="#herramientas" className="nav-link" onClick={closeMenu}>Herramientas</a>
           <a href="#recursos" className="nav-link" onClick={closeMenu}>Recursos</a>
-          <a href="#demostraciones" className="nav-link" onClick={closeMenu}>Demostraciones</a>
+          <a href="#demostraciones" className="nav-link" onClick={closeMenu}>Repasos</a>
           <Link to="mineria/glosario" className="nav-link" onClick={closeMenu}>Glosario</Link>
         </div>
       </div>
