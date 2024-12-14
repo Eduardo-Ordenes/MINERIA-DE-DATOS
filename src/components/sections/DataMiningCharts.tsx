@@ -4,7 +4,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import NavigationForGraphsAndGlossary from './NavigationForGraphsAndGlossary ';
-
+import Logistica_Imagen from '../../assets/Análisis de clasificación.png';
 
 const DataMiningCharts: React.FC = () => {
   const initialAlgorithmData = [
@@ -165,11 +165,33 @@ const DataMiningCharts: React.FC = () => {
       <NavigationForGraphsAndGlossary />
       <div id='graficos' className="data-mining-charts">
         <h2 className="section-title">Grafico Interactivo</h2>
-
         <div className="chart-container" data-aos="fade-up">
           <h2>Análisis de clasificación simple</h2>
           <p>El análisis de clasificación es una técnica fundamental en minería de datos. Nos permite categorizar elementos en diferentes clases basándonos en sus características. Para este ejemplo utilizaremos el conjunto de datos Iris, que incluye información sobre las medidas de tres especies de flores: setosa, versicolor y virginica. Nuestro objetivo será entrenar un modelo que pueda predecir correctamente la especie de una flor desconocida usando sus medidas, estas son la longitud y ancho del pétalo y del sépalo.
             Empleando Orange Data Mining, lo que haremos será: cargar los datos, explorar sus características, entrenar un modelo de regresión logística, y evaluar su rendimiento con métricas estándar como precisión y F1 score. No sólo veremos cómo implementar un modelo de clasificación, sino que además entenderemos cómo evaluar su efectividad.
+            
+            <div>
+            <img src={Logistica_Imagen}></img>
+            </div>
+
+            <div style={{display: 'flex', flexDirection: 'row', gap: '0.5rem'}}>
+              <a
+                href="files/Análisis de clasificación simple.ows"
+                download="Análisis de clasificación simple.ows"
+                className="download-link orange"
+              >
+                Descargar Archivo .ows
+              </a>
+              <br />
+              <a
+                href="/files/example.xlsx"
+                download="example.xlsx"
+                className="download-link green"
+              >
+                Descargar Archivo .xlsx
+              </a>
+            </div>
+
             <h3>Objetivo:</h3>
             <p>Clasificar flores en el conjunto de datos Iris basado en sus características.</p>
             <h3>Pasos:</h3>
@@ -213,52 +235,52 @@ const DataMiningCharts: React.FC = () => {
 
           <div className="chart-container">
             <p><h3>Datos Reales</h3></p>
-          <ResponsiveContainer width="100%" height={300}>
-            <PieChart>
-              <Pie
-                activeIndex={activeIndex}
-                activeShape={renderActiveShape}
-                data={dataTypesData}
-                cx="50%"
-                cy="50%"
-                innerRadius={60}
-                outerRadius={80}
-                fill="#8884d8"
-                dataKey="value"
-                onMouseEnter={onPieEnter}
-              >
-                {dataTypesData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                ))}
-              </Pie>
-            </PieChart>
-          </ResponsiveContainer>
-        </div>
+            <ResponsiveContainer width="100%" height={300}>
+              <PieChart>
+                <Pie
+                  activeIndex={activeIndex}
+                  activeShape={renderActiveShape}
+                  data={dataTypesData}
+                  cx="50%"
+                  cy="50%"
+                  innerRadius={60}
+                  outerRadius={80}
+                  fill="#8884d8"
+                  dataKey="value"
+                  onMouseEnter={onPieEnter}
+                >
+                  {dataTypesData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  ))}
+                </Pie>
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
 
 
-        <div className="chart-container">
-        <p><h3>Datos Predicción</h3></p>
-          <ResponsiveContainer width="100%" height={300}>
-            <PieChart>
-              <Pie
-                activeIndex={activeIndex}
-                activeShape={renderActiveShape}
-                data={dataTypes}
-                cx="50%"
-                cy="50%"
-                innerRadius={60}
-                outerRadius={80}
-                fill="#8884d8"
-                dataKey="value"
-                onMouseEnter={onPieEnter}
-              >
-                {dataTypes.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                ))}
-              </Pie>
-            </PieChart>
-          </ResponsiveContainer>
-        </div>
+          <div className="chart-container">
+            <p><h3>Datos Predicción</h3></p>
+            <ResponsiveContainer width="100%" height={300}>
+              <PieChart>
+                <Pie
+                  activeIndex={activeIndex}
+                  activeShape={renderActiveShape}
+                  data={dataTypes}
+                  cx="50%"
+                  cy="50%"
+                  innerRadius={60}
+                  outerRadius={80}
+                  fill="#8884d8"
+                  dataKey="value"
+                  onMouseEnter={onPieEnter}
+                >
+                  {dataTypes.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  ))}
+                </Pie>
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
         </div>
 
         <div className="chart-container">
@@ -304,7 +326,7 @@ const DataMiningCharts: React.FC = () => {
         </div>
 
         <div className="chart-container">
-        <ResponsiveContainer width="100%" height={300}>
+          <ResponsiveContainer width="100%" height={300}>
             <BarChart data={algorithmData}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" />
