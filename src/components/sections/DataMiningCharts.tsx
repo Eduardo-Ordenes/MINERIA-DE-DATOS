@@ -253,7 +253,7 @@ const DataMiningCharts: React.FC = () => {
     <>
       <NavigationForGraphsAndGlossary />
       <div id='graficos' className="data-mining-charts">
-        <h2 className="section-title">Gráficos Demostrativos</h2>
+        <h2 className="section-title">Ejercicios & Gráficos Demostrativos</h2>
         <div className="chart-container" data-aos="fade-up">
           <h2>Análisis de clasificación simple</h2>
           <p>El análisis de clasificación es una técnica fundamental en minería de datos. Nos permite categorizar elementos en diferentes clases basándonos en sus características. Para este ejemplo utilizaremos el conjunto de datos Iris, que incluye información sobre las medidas de tres especies de flores: setosa, versicolor y virginica. Nuestro objetivo será entrenar un modelo que pueda predecir correctamente la especie de una flor desconocida usando sus medidas, estas son la longitud y ancho del pétalo y del sépalo.
@@ -270,10 +270,10 @@ const DataMiningCharts: React.FC = () => {
               <br />
               <a
                 href="files/iris.tab"
-                download="example.xlsx"
+                download="iris.tab"
                 className="download-link green"
               >
-                Descargar DataMainig .xlsx
+                Descargar Dataset .xlsx
               </a>
             </div>
 
@@ -391,7 +391,7 @@ const DataMiningCharts: React.FC = () => {
                 download="fruits_vegetables.tab"
                 className="download-link green"
               >
-                Descargar Datamainig .xlsx
+                Descargar Dataset .xlsx
               </a>
             </div>
 
@@ -501,7 +501,7 @@ const DataMiningCharts: React.FC = () => {
                 download="market-basket.xlsx"
                 className="download-link green"
               >
-                Descargar Datamainig .xlsx
+                Descargar Dataset .xlsx
               </a>
             </div>
 
@@ -563,7 +563,7 @@ const DataMiningCharts: React.FC = () => {
                 download="comercial_delta_data_large.csv"
                 className="download-link green"
               >
-                Descargar Datamainig .xlsx
+                Descargar Dataset .xlsx
               </a>
             </div>
 
