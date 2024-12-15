@@ -8,17 +8,11 @@ import Logistica_Imagen from '../../assets/Análisis de clasificación.png';
 import Clustering_Imagen from '../../assets/Análisis de agrupamiento (Clustering).png';
 import AssociationRules_Imagen from '../../assets/Reglas de asociación.png';
 import ProfitabilityAnalysis_Imagen from '../../assets/Identificación de clientes rentables.png';
-
+import BarChartIntereactive from '../interactive/BarChartIntereactive';
+import Clustering from '../interactive/Clustering ';
 
 
 const DataMiningCharts: React.FC = () => {
-  // const initialAlgorithmData = [
-  //   { name: 'Decision Trees', accuracy: 85, speed: 90 },
-  //   { name: 'Random Forest', accuracy: 92, speed: 75 },
-  //   { name: 'SVM', accuracy: 88, speed: 60 },
-  //   { name: 'K-Means', accuracy: 78, speed: 95 },
-  //   { name: 'Neural Networks', accuracy: 94, speed: 50 },
-  // ];
 
   const initialAlgorithmData = [
     { rango: "2000 - 2200", frecuencia: 22 },
@@ -75,7 +69,6 @@ const DataMiningCharts: React.FC = () => {
     { x: 7, y: 9, cluster: 'A' },
     { x: 7, y: 12, cluster: 'A' }
   ];
-
 
 
   const ClusterData2 = [
@@ -139,11 +132,9 @@ const DataMiningCharts: React.FC = () => {
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const [selectedAlgorithm, setSelectedAlgorithm] = useState<string | null>(null);
   const [algorithmData, setAlgorithmData] = useState(initialAlgorithmData);
   const [dataGrowthData, setDataGrowthData] = useState(initialDataGrowthData);
   const [clusterData, setClusterData] = useState(ClusterData1);
-
   const [newAlgorithm, setNewAlgorithm] = useState({ name: '', accuracy: 0, speed: 0 });
   const [newDataGrowth, setNewDataGrowth] = useState({ year: 0, dataVolume: 0 });
   const [newClusterPoint, setNewClusterPoint] = useState({ x: 0, y: 0, cluster: '' });
@@ -244,12 +235,6 @@ const DataMiningCharts: React.FC = () => {
     setClusterData(ClusterData1);
   };
 
-
-
-  // const handleDeleteAlgorithm = (name: string) => {
-  //   setAlgorithmData(algorithmData.filter(algo => algo.name !== name));
-  // };
-
   const handleDeleteDataGrowth = (year: number) => {
     setDataGrowthData(dataGrowthData.filter(data => data.year !== year));
   };
@@ -334,7 +319,6 @@ const DataMiningCharts: React.FC = () => {
             <div>
               <img src={Logistica_Imagen} className='image-charts' alt='imagen-logistica'></img>
             </div>
-
           </p>
 
           <div className="chart-container">
@@ -472,7 +456,7 @@ const DataMiningCharts: React.FC = () => {
                 name="Color"
                 label={{ value: 'Color', position: 'insideBottom', offset: -5 }}
                 domain={[Math.min(...ClusterData1.map(d => d.x)), Math.max(...ClusterData1.map(d => d.x))]}
-                allowDecimals={false} // Evita decimales en los valores del eje X
+                allowDecimals={false} 
               />
               <YAxis
                 type="number"
@@ -495,41 +479,6 @@ const DataMiningCharts: React.FC = () => {
             </ScatterChart>
           </ResponsiveContainer>
 
-          {/* <form onSubmit={handleAddClusterPoint} className="add-data-form">
-            <input
-              type="number"
-              placeholder="Coordenada X"
-              value={newClusterPoint.x || ''}
-              onChange={(e) => setNewClusterPoint({ ...newClusterPoint, x: Number(e.target.value) })}
-              required
-            />
-            <input
-              type="number"
-              placeholder="Coordenada Y"
-              value={newClusterPoint.y || ''}
-              onChange={(e) => setNewClusterPoint({ ...newClusterPoint, y: Number(e.target.value) })}
-              required
-            />
-            <input
-              type="text"
-              placeholder="Cluster (A, B, o C)"
-              value={newClusterPoint.cluster}
-              onChange={(e) => setNewClusterPoint({ ...newClusterPoint, cluster: e.target.value })}
-              required
-            />
-            <button type="submit">Agregar punto de Cluster </button>
-          </form>
-          <div className="data-actions">
-            <button onClick={handleResetClusterData}>Reiniciar datos</button>
-          </div>
-          <div className="data-list">
-            {clusterData.map((point, index) => (
-              <div key={index} className="data-item">
-                <span>({point.x}, {point.y}) - Cluster {point.cluster}</span>
-                <button onClick={() => handleDeleteClusterPoint(point.x, point.y)}>Eliminar</button>
-              </div>
-            ))}
-          </div> */}
         </div>
 
         <div className="chart-container">
@@ -591,76 +540,6 @@ const DataMiningCharts: React.FC = () => {
             </div>
           </p>
 
-
-          {/* <ResponsiveContainer width="100%" height={300}>
-            <ScatterChart
-              width={600}
-              height={400}
-              margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
-            >
-              <CartesianGrid />
-              <XAxis
-                type="category"
-                dataKey="x"
-                name="Color"
-                label={{ value: 'Color', position: 'insideBottom', offset: -5 }}
-              />
-              <YAxis
-                type="number"
-                dataKey="y"
-                name="Size"
-                label={{ value: 'Size', angle: -90, position: 'insideLeft' }}
-              />
-              <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-              <Legend />
-              <Scatter
-                name="Fruta"
-                data={clusterData.filter(d => d.cluster === 'A')}
-                fill="#8884d8"
-              />
-              <Scatter
-                name="Vegetables"
-                data={clusterData.filter(d => d.cluster === 'B')}
-                fill="#82ca9d"
-              />
- 
-            </ScatterChart>
-          </ResponsiveContainer>
-          <form onSubmit={handleAddClusterPoint} className="add-data-form">
-            <input
-              type="number"
-              placeholder="Coordenada X"
-              value={newClusterPoint.x || ''}
-              onChange={(e) => setNewClusterPoint({ ...newClusterPoint, x: Number(e.target.value) })}
-              required
-            />
-            <input
-              type="number"
-              placeholder="Coordenada Y"
-              value={newClusterPoint.y || ''}
-              onChange={(e) => setNewClusterPoint({ ...newClusterPoint, y: Number(e.target.value) })}
-              required
-            />
-            <input
-              type="text"
-              placeholder="Cluster (A, B, o C)"
-              value={newClusterPoint.cluster}
-              onChange={(e) => setNewClusterPoint({ ...newClusterPoint, cluster: e.target.value })}
-              required
-            />
-            <button type="submit">Agregar punto de Cluster </button>
-          </form>
-          <div className="data-actions">
-            <button onClick={handleResetClusterData}>Reiniciar datos</button>
-          </div>
-          <div className="data-list">
-            {clusterData.map((point, index) => (
-              <div key={index} className="data-item">
-                <span>({point.x}, {point.y}) - Cluster {point.cluster}</span>
-                <button onClick={() => handleDeleteClusterPoint(point.x, point.y)}>Eliminar</button>
-              </div>
-            ))}
-          </div> */}
         </div>
 
         <div className="chart-container">
@@ -770,50 +649,6 @@ const DataMiningCharts: React.FC = () => {
                     <Bar dataKey="frecuencia" fill="#8884d8" />
                   </BarChart>
                 </ResponsiveContainer>
-                {/* {selectedAlgorithm && (
-            <div className="algorithm-details">
-              <h3>{selectedAlgorithm}</h3>
-              <p>
-                {algorithmData.find(algo => algo.name === selectedAlgorithm)?.accuracy}% Precisión,{' '}
-                {algorithmData.find(algo => algo.name === selectedAlgorithm)?.speed}% Velocidad
-              </p>
-            </div>
-          )}
-          <form onSubmit={handleAddAlgorithm} className="add-data-form">
-            <input
-              type="text"
-              placeholder="Nombre del algoritmo"
-              value={newAlgorithm.name}
-              onChange={(e) => setNewAlgorithm({ ...newAlgorithm, name: e.target.value })}
-              required
-            />
-            <input
-              type="number"
-              placeholder="Precisión"
-              value={newAlgorithm.accuracy || ''}
-              onChange={(e) => setNewAlgorithm({ ...newAlgorithm, accuracy: Number(e.target.value) })}
-              required
-            />
-            <input
-              type="number"
-              placeholder="Velocidad"
-              value={newAlgorithm.speed || ''}
-              onChange={(e) => setNewAlgorithm({ ...newAlgorithm, speed: Number(e.target.value) })}
-              required
-            />
-            <button type="submit">Agregar algoritmo</button>
-          </form>
-          <div className="data-actions">
-            <button onClick={handleResetAlgorithmData}>Reiniciar datos</button>
-          </div>
-          <div className="data-list">
-            {algorithmData.map((algo) => (
-              <div key={algo.name} className="data-item">
-                <span>{algo.name}</span>
-                <button onClick={() => handleDeleteAlgorithm(algo.name)}>Eliminar</button>
-              </div>
-            ))}
-          </div> */}
 
               </li>
               <li>
@@ -868,43 +703,6 @@ const DataMiningCharts: React.FC = () => {
                   </ScatterChart>
                 </ResponsiveContainer>
 
-
-                {/* <form onSubmit={handleAddClusterPoint} className="add-data-form">
-            <input
-              type="number"
-              placeholder="Coordenada X"
-              value={newClusterPoint.x || ''}
-              onChange={(e) => setNewClusterPoint({ ...newClusterPoint, x: Number(e.target.value) })}
-              required
-            />
-            <input
-              type="number"
-              placeholder="Coordenada Y"
-              value={newClusterPoint.y || ''}
-              onChange={(e) => setNewClusterPoint({ ...newClusterPoint, y: Number(e.target.value) })}
-              required
-            />
-            <input
-              type="text"
-              placeholder="Cluster (A, B, o C)"
-              value={newClusterPoint.cluster}
-              onChange={(e) => setNewClusterPoint({ ...newClusterPoint, cluster: e.target.value })}
-              required
-            />
-            <button type="submit">Agregar punto de Cluster </button>
-          </form>
-          <div className="data-actions">
-            <button onClick={handleResetClusterData}>Reiniciar datos</button>
-          </div>
-          <div className="data-list">
-            {clusterData.map((point, index) => (
-              <div key={index} className="data-item">
-                <span>({point.x}, {point.y}) - Cluster {point.cluster}</span>
-                <button onClick={() => handleDeleteClusterPoint(point.x, point.y)}>Eliminar</button>
-              </div>
-            ))}
-          </div> */}
-
               </li>
               <li>
                 <strong>Selección de Variables para el Modelado:</strong>
@@ -949,13 +747,9 @@ const DataMiningCharts: React.FC = () => {
               </li>
             </ol>
           </p>
-
-
-
-
         </div>
 
-        <h2 className="section-title">Gráfico Interactivo</h2>
+        <h2 className="section-title">Gráficos Interactivos</h2>
         <div className="chart-container">
           <h2>Gráfico de línea</h2>
           <p>Los gráficos de líneas se usan para representar grandes cantidades de datos que tienen lugar durante un período continuado de tiempo.</p>
@@ -999,64 +793,17 @@ const DataMiningCharts: React.FC = () => {
           </div>
         </div>
 
-        {/* <div className="chart-container">
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={algorithmData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Legend onClick={(e) => setSelectedAlgorithm(e.value)} />
-              <Bar dataKey="accuracy" fill="#8884d8" name="Presicion" />
-              <Bar dataKey="speed" fill="#82ca9d" name="Velocidad" />
-            </BarChart>
-          </ResponsiveContainer>
-          {selectedAlgorithm && (
-            <div className="algorithm-details">
-              <h3>{selectedAlgorithm}</h3>
-              <p>
-                {algorithmData.find(algo => algo.name === selectedAlgorithm)?.accuracy}% Precisión,{' '}
-                {algorithmData.find(algo => algo.name === selectedAlgorithm)?.speed}% Velocidad
-              </p>
-            </div>
-          )}
-          <form onSubmit={handleAddAlgorithm} className="add-data-form">
-            <input
-              type="text"
-              placeholder="Nombre del algoritmo"
-              value={newAlgorithm.name}
-              onChange={(e) => setNewAlgorithm({ ...newAlgorithm, name: e.target.value })}
-              required
-            />
-            <input
-              type="number"
-              placeholder="Precisión"
-              value={newAlgorithm.accuracy || ''}
-              onChange={(e) => setNewAlgorithm({ ...newAlgorithm, accuracy: Number(e.target.value) })}
-              required
-            />
-            <input
-              type="number"
-              placeholder="Velocidad"
-              value={newAlgorithm.speed || ''}
-              onChange={(e) => setNewAlgorithm({ ...newAlgorithm, speed: Number(e.target.value) })}
-              required
-            />
-            <button type="submit">Agregar algoritmo</button>
-          </form>
-          <div className="data-actions">
-            <button onClick={handleResetAlgorithmData}>Reiniciar datos</button>
-          </div>
-          <div className="data-list">
-            {algorithmData.map((algo) => (
-              <div key={algo.name} className="data-item">
-                <span>{algo.name}</span>
-                <button onClick={() => handleDeleteAlgorithm(algo.name)}>Eliminar</button>
-              </div>
-            ))}
-          </div>
-        </div> */}
+        <div className="chart-container">
+          <h2>Gráfico de barra</h2>
+          <p>Los gráficos de barras son herramientas visuales que sirven para representar datos categóricos de manera clara y comparativa.</p>
+          <BarChartIntereactive />
+        </div>
 
+        <div className="chart-container">
+          <h2>Gráfico de disperción</h2>
+          <p>Los gráficos de disperción una herramienta visual utilizada para representar y analizar relaciones entre dos variables numéricas.</p>
+          <Clustering />
+        </div>
 
       </div>
     </>
