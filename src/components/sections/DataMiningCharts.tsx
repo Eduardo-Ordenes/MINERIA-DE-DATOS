@@ -268,7 +268,7 @@ const DataMiningCharts: React.FC = () => {
     <>
       <NavigationForGraphsAndGlossary />
       <div id='graficos' className="data-mining-charts">
-        <h2 className="section-title">Graficos Demostrativos</h2>
+        <h2 className="section-title">Gráficos Demostrativos</h2>
         <div className="chart-container" data-aos="fade-up">
           <h2>Análisis de clasificación simple</h2>
           <p>El análisis de clasificación es una técnica fundamental en minería de datos. Nos permite categorizar elementos en diferentes clases basándonos en sus características. Para este ejemplo utilizaremos el conjunto de datos Iris, que incluye información sobre las medidas de tres especies de flores: setosa, versicolor y virginica. Nuestro objetivo será entrenar un modelo que pueda predecir correctamente la especie de una flor desconocida usando sus medidas, estas son la longitud y ancho del pétalo y del sépalo.
@@ -955,7 +955,7 @@ const DataMiningCharts: React.FC = () => {
 
         </div>
 
-        <h2 className="section-title">Grafico Interactivo</h2>
+        <h2 className="section-title">Gráfico Interactivo</h2>
         <div className="chart-container">
           <h2>Gráfico de línea</h2>
           <p>Los gráficos de líneas se usan para representar grandes cantidades de datos que tienen lugar durante un período continuado de tiempo.</p>
