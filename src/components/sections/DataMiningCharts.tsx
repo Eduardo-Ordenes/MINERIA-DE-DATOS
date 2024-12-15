@@ -6,6 +6,9 @@ import 'aos/dist/aos.css';
 import NavigationForGraphsAndGlossary from './NavigationForGraphsAndGlossary ';
 import Logistica_Imagen from '../../assets/Análisis de clasificación.png';
 import Clustering_Imagen from '../../assets/Análisis de agrupamiento (Clustering).png';
+import AssociationRules_Imagen from '../../assets/Reglas de asociación.png';
+import ProfitabilityAnalysis_Imagen from '../../assets/Identificación de clientes rentables.png';
+
 
 
 const DataMiningCharts: React.FC = () => {
@@ -388,6 +391,137 @@ const DataMiningCharts: React.FC = () => {
                 data={clusterData.filter(d => d.cluster === 'B')}
                 fill="#82ca9d"
               />
+
+            </ScatterChart>
+          </ResponsiveContainer>
+          {/* <form onSubmit={handleAddClusterPoint} className="add-data-form">
+            <input
+              type="number"
+              placeholder="Coordenada X"
+              value={newClusterPoint.x || ''}
+              onChange={(e) => setNewClusterPoint({ ...newClusterPoint, x: Number(e.target.value) })}
+              required
+            />
+            <input
+              type="number"
+              placeholder="Coordenada Y"
+              value={newClusterPoint.y || ''}
+              onChange={(e) => setNewClusterPoint({ ...newClusterPoint, y: Number(e.target.value) })}
+              required
+            />
+            <input
+              type="text"
+              placeholder="Cluster (A, B, o C)"
+              value={newClusterPoint.cluster}
+              onChange={(e) => setNewClusterPoint({ ...newClusterPoint, cluster: e.target.value })}
+              required
+            />
+            <button type="submit">Agregar punto de Cluster </button>
+          </form>
+          <div className="data-actions">
+            <button onClick={handleResetClusterData}>Reiniciar datos</button>
+          </div>
+          <div className="data-list">
+            {clusterData.map((point, index) => (
+              <div key={index} className="data-item">
+                <span>({point.x}, {point.y}) - Cluster {point.cluster}</span>
+                <button onClick={() => handleDeleteClusterPoint(point.x, point.y)}>Eliminar</button>
+              </div>
+            ))}
+          </div> */}
+        </div>
+
+        <div className="chart-container">
+          <h2>Reglas de asociación</h2>
+          <p>
+            Las reglas de asociación son una técnica poderosa de análisis utilizada para descubrir relaciones interesantes entre elementos en grandes conjuntos de datos. Este enfoque es particularmente útil en el análisis de transacciones, como en un supermercado, donde el objetivo es identificar patrones de compra que puedan sugerir qué productos suelen comprarse juntos.
+            En este ejemplo, trabajaremos con un conjunto de datos de transacciones y aplicaremos un análisis de reglas de asociación mediante el algoritmo Apriori, ampliamente reconocido en el análisis de canastas de mercado. Utilizando Orange Data Mining, extraeremos estas reglas, visualizaremos su soporte y confianza, y filtraremos aquellas que puedan ser útiles para la toma de decisiones, como estrategias de promoción o diseño de tiendas.
+
+            <div style={{ display: 'flex', flexDirection: 'row', gap: '0.5rem' }}>
+              <a
+                href="files/Reglas de asociación.ows"
+                download="Reglas de asociación.ows"
+                className="download-link orange"
+              >
+                Descargar .ows
+              </a>
+              <br />
+              <a
+                href="files/market-basket.xlsx"
+                download="market-basket.xlsx"
+                className="download-link green"
+              >
+                Descargar .xlsx
+              </a>
+            </div>
+
+            <h3>Objetivo:</h3>
+            <p>Encontrar reglas de asociación entre productos en un conjunto de datos de transacciones.</p>
+
+            <h3>Pasos:</h3>
+            <ol>
+              <li>
+                <strong>Cargar datos:</strong>
+                <ul>
+                  <li>
+                    Usa el widget <strong>File</strong> para cargar un archivo de transacciones (utilizaremos: <code>market-basket.xlsx</code>).
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Extraer reglas de asociación:</strong>
+                <ul>
+                  <li>Arrastra el widget <strong>Associate Rules</strong> al lienzo.</li>
+                  <li>Conecta <strong>File → Associate Rules</strong>.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Visualizar las reglas:</strong>
+                <ul>
+                  <li>
+                    Conecta <strong>Associate Rules → Data Table</strong> para ver las reglas generadas con soporte y confianza.
+                  </li>
+                </ul>
+              </li>
+            </ol>
+
+            <div>
+              <img src={AssociationRules_Imagen} className='image-charts' alt="Visualización de reglas de asociación" />
+            </div>
+          </p>
+
+
+          {/* <ResponsiveContainer width="100%" height={300}>
+            <ScatterChart
+              width={600}
+              height={400}
+              margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+            >
+              <CartesianGrid />
+              <XAxis
+                type="category"
+                dataKey="x"
+                name="Color"
+                label={{ value: 'Color', position: 'insideBottom', offset: -5 }}
+              />
+              <YAxis
+                type="number"
+                dataKey="y"
+                name="Size"
+                label={{ value: 'Size', angle: -90, position: 'insideLeft' }}
+              />
+              <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+              <Legend />
+              <Scatter
+                name="Fruta"
+                data={clusterData.filter(d => d.cluster === 'A')}
+                fill="#8884d8"
+              />
+              <Scatter
+                name="Vegetables"
+                data={clusterData.filter(d => d.cluster === 'B')}
+                fill="#82ca9d"
+              />
  
             </ScatterChart>
           </ResponsiveContainer>
@@ -425,7 +559,299 @@ const DataMiningCharts: React.FC = () => {
                 <button onClick={() => handleDeleteClusterPoint(point.x, point.y)}>Eliminar</button>
               </div>
             ))}
+          </div> */}
+        </div>
+
+        <div className="chart-container">
+          <h2> Identificación de clientes rentables</h2>
+          <p>
+            En el mundo empresarial, una de las estrategias clave para optimizar los recursos y maximizar los beneficios consiste en identificar a los clientes más rentables.
+            A lo largo de este ejercicio, trabajaremos con un conjunto de datos históricos de ventas. Este conjunto incluye información clave como el monto total de las compras, la frecuencia de compra, la edad, el género, y otros indicadores relevantes. Además, se han introducido dos variables derivadas: Rentabilidad, que mide la relación entre el monto total y la frecuencia de compra, y Rentable, que clasifica a los clientes con base en un umbral específico (monto total mayor a 3000).
+            El ejercicio no solo se enfoca en la limpieza, preparación y análisis de los datos, sino también en la implementación de modelos de clasificación binaria, como Regresión Logística y Random Forest, para predecir cuáles clientes son rentables. Estos modelos serán evaluados rigurosamente para determinar su efectividad, precisión y utilidad práctica en la toma de decisiones estratégicas.
+
+            <div style={{ display: 'flex', flexDirection: 'row', gap: '0.5rem' }}>
+              <a
+                href="files/Identificacion de clientes rentables.ows"
+                download="Identificacion de clientes rentables.ows"
+                className="download-link orange"
+              >
+                Descargar .ows
+              </a>
+              <br />
+              <a
+                href="files/comercial_delta_data_large.csv"
+                download="comercial_delta_data_large.csv"
+                className="download-link green"
+              >
+                Descargar .xlsx
+              </a>
+            </div>
+
+            <h3>Objetivo:</h3>
+            <p>
+              Lograr la identificación de los clientes rentables de una manera precisa, utilizando técnicas de análisis de datos avanzadas y herramientas de modelado predictivo.
+            </p>
+
+            <div>
+              <img src={ProfitabilityAnalysis_Imagen} className='image-charts' alt="Visualización de clientes rentables" />
+            </div>
+
+            <h3>Pasos:</h3>
+            <ol>
+              <li>
+                <strong>Carga de los Datos:</strong>
+                <ul>
+                  <li>
+                    Usa el widget <strong>File</strong> para cargar el archivo con los datos históricos de ventas. Este archivo contiene las variables necesarias para el análisis (Monto Total de Compras, Frecuencia de Compra, Género, Edad, entre otras).
+                  </li>
+                  <li>
+                    Verifica que los datos se cargaron correctamente explorando las columnas disponibles.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Limpieza de los Datos:</strong>
+                <ul>
+                  <li>
+                    Usa el widget <strong>Edit Domain</strong> para:
+                    <ul>
+                      <li>Género: Simplificar los valores a "F" (Femenino) y "M" (Masculino).</li>
+                      <li>Ciudad: Eliminar los registros con valores desconocidos ("Unknown").</li>
+                      <li>Método de Pago: Corregir valores mal escritos, como cambiar "tarj" a "Tarjeta".</li>
+                      <li>Promoción Activa: Eliminar registros con valores desconocidos.</li>
+                    </ul>
+                  </li>
+                  <li>
+                    Utiliza el widget <strong>Select Rows</strong> o <strong>Impute</strong> para manejar valores faltantes o inconsistencias adicionales.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Creación de Variables Derivadas:</strong>
+                <ul>
+                  <li>
+                    Usa el widget <strong>Formula</strong> para calcular:
+                    <ul>
+                      <li>
+                        <strong>Rentabilidad:</strong> Calcula la relación entre el Monto Total de Compras y la Frecuencia de Compra. <br />
+                        Fórmula: Rentabilidad = Monto Total de Compras / Frecuencia de Compra
+                      </li>
+                      <li>
+                        <strong>Rentable:</strong> Clasifica a los clientes según su monto total. <br />
+                        Fórmula: Rentable = Monto Total de Compras &gt; 3000
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Análisis Exploratorio de los Datos:</strong>
+                <ul>
+                  <li>
+                    Usa el widget <strong>Scatter Plot</strong> para observar:
+                    <ul>
+                      <li>
+                        Relación entre Frecuencia de Compra y Monto Total de Compras. Configura el color de los puntos según la variable Rentabilidad para identificar visualmente a los clientes más rentables.
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    Usa el widget <strong>Histogram</strong> para analizar la distribución de los valores en el Monto Total de Compras y detectar frecuencias sobresalientes.
+                  </li>
+                </ul>
+
+                <ResponsiveContainer width="100%" height={300}>
+                  <BarChart data={algorithmData}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend onClick={(e) => setSelectedAlgorithm(e.value)} />
+                    <Bar dataKey="accuracy" fill="#8884d8"  />
+                    <Bar dataKey="speed" fill="#8884d8" />
+                  </BarChart>
+                </ResponsiveContainer>
+                {/* {selectedAlgorithm && (
+            <div className="algorithm-details">
+              <h3>{selectedAlgorithm}</h3>
+              <p>
+                {algorithmData.find(algo => algo.name === selectedAlgorithm)?.accuracy}% Precisión,{' '}
+                {algorithmData.find(algo => algo.name === selectedAlgorithm)?.speed}% Velocidad
+              </p>
+            </div>
+          )}
+          <form onSubmit={handleAddAlgorithm} className="add-data-form">
+            <input
+              type="text"
+              placeholder="Nombre del algoritmo"
+              value={newAlgorithm.name}
+              onChange={(e) => setNewAlgorithm({ ...newAlgorithm, name: e.target.value })}
+              required
+            />
+            <input
+              type="number"
+              placeholder="Precisión"
+              value={newAlgorithm.accuracy || ''}
+              onChange={(e) => setNewAlgorithm({ ...newAlgorithm, accuracy: Number(e.target.value) })}
+              required
+            />
+            <input
+              type="number"
+              placeholder="Velocidad"
+              value={newAlgorithm.speed || ''}
+              onChange={(e) => setNewAlgorithm({ ...newAlgorithm, speed: Number(e.target.value) })}
+              required
+            />
+            <button type="submit">Agregar algoritmo</button>
+          </form>
+          <div className="data-actions">
+            <button onClick={handleResetAlgorithmData}>Reiniciar datos</button>
           </div>
+          <div className="data-list">
+            {algorithmData.map((algo) => (
+              <div key={algo.name} className="data-item">
+                <span>{algo.name}</span>
+                <button onClick={() => handleDeleteAlgorithm(algo.name)}>Eliminar</button>
+              </div>
+            ))}
+          </div> */}
+
+              </li>
+              <li>
+                <strong>Agrupamiento de Clientes:</strong>
+                <ul>
+                  <li>
+                    Usa el widget <strong>K-Means</strong> para agrupar a los clientes en diferentes clústeres según características como Frecuencia de Compra, Monto Total y Rentabilidad.
+                  </li>
+                  <li>
+                    Configura el número de clústeres (por ejemplo, 3) y analiza cómo se agrupan los clientes.
+                  </li>
+                </ul>
+
+
+                <ResponsiveContainer width="100%" height={300}>
+                  <ScatterChart
+                    width={600}
+                    height={400}
+                    margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+                  >
+                    <CartesianGrid />
+                    <XAxis
+                      type="category"
+                      dataKey="x"
+                      name="Color"
+                      label={{ value: 'Color', position: 'insideBottom', offset: -5 }}
+                    />
+                    <YAxis
+                      type="number"
+                      dataKey="y"
+                      name="Size"
+                      label={{ value: 'Size', angle: -90, position: 'insideLeft' }}
+                    />
+                    <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+                    <Legend />
+                    <Scatter
+                      name="C1"
+                      data={clusterData.filter(d => d.cluster === 'A')}
+                      fill="#8884d8"
+                    />
+                    <Scatter
+                      name="C2"
+                      data={clusterData.filter(d => d.cluster === 'B')}
+                      fill="#82ca9d"
+                    />
+                    <Scatter
+                      name="C3"
+                      data={clusterData.filter(d => d.cluster === 'B')}
+                      fill="#FFBB28"
+                    />
+
+                  </ScatterChart>
+                </ResponsiveContainer>
+                {/* <form onSubmit={handleAddClusterPoint} className="add-data-form">
+            <input
+              type="number"
+              placeholder="Coordenada X"
+              value={newClusterPoint.x || ''}
+              onChange={(e) => setNewClusterPoint({ ...newClusterPoint, x: Number(e.target.value) })}
+              required
+            />
+            <input
+              type="number"
+              placeholder="Coordenada Y"
+              value={newClusterPoint.y || ''}
+              onChange={(e) => setNewClusterPoint({ ...newClusterPoint, y: Number(e.target.value) })}
+              required
+            />
+            <input
+              type="text"
+              placeholder="Cluster (A, B, o C)"
+              value={newClusterPoint.cluster}
+              onChange={(e) => setNewClusterPoint({ ...newClusterPoint, cluster: e.target.value })}
+              required
+            />
+            <button type="submit">Agregar punto de Cluster </button>
+          </form>
+          <div className="data-actions">
+            <button onClick={handleResetClusterData}>Reiniciar datos</button>
+          </div>
+          <div className="data-list">
+            {clusterData.map((point, index) => (
+              <div key={index} className="data-item">
+                <span>({point.x}, {point.y}) - Cluster {point.cluster}</span>
+                <button onClick={() => handleDeleteClusterPoint(point.x, point.y)}>Eliminar</button>
+              </div>
+            ))}
+          </div> */}
+
+              </li>
+              <li>
+                <strong>Selección de Variables para el Modelado:</strong>
+                <ul>
+                  <li>
+                    Usa el widget <strong>Select Columns</strong> para seleccionar las variables predictoras (Frecuencia de Compra, Monto Total, Género, Edad, etc.) y la variable objetivo (Rentable).
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Entrenamiento de Modelos:</strong>
+                <ul>
+                  <li>
+                    Usa el widget <strong>Logistic Regression</strong> para configurar y entrenar un modelo de regresión logística.
+                  </li>
+                  <li>
+                    Usa el widget <strong>Random Forest</strong> para entrenar un modelo con:
+                    <ul>
+                      <li>Número de árboles: 100.</li>
+                      <li>Profundidad máxima: 10.</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Evaluación de Modelos:</strong>
+                <ul>
+                  <li>
+                    Usa el widget <strong>Test & Score</strong> para evaluar métricas como AUC, Precisión, F1 Score, Recall y MCC.
+                  </li>
+                  <li>
+                    Usa el widget <strong>Confusion Matrix</strong> para visualizar los resultados.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Comparación de Resultados:</strong>
+                <ul>
+                  <li>Regresión Logística: Ventajas - Interpretabilidad. Limitaciones - Relación lineal.</li>
+                  <li>Random Forest: Ventajas - Relaciones no lineales. Limitaciones - Complejidad.</li>
+                </ul>
+              </li>
+            </ol>
+          </p>
+
+
+
+
         </div>
 
 
@@ -471,7 +897,7 @@ const DataMiningCharts: React.FC = () => {
           </div>
         </div>
 
-        <div className="chart-container">
+        {/* <div className="chart-container">
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={algorithmData}>
               <CartesianGrid strokeDasharray="3 3" />
@@ -527,7 +953,7 @@ const DataMiningCharts: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
 
       </div>
