@@ -21,31 +21,26 @@ const DataMiningCharts: React.FC = () => {
   // ];
 
   const initialAlgorithmData = [
-    { rango: "0 - 1000", frecuencia: 5 },
-    { rango: "1000 - 2000", frecuencia: 10 },
-    { rango: "5000 - 6000", frecuencia: 25 },
-    { rango: "6000 - 7000", frecuencia: 30 },
-    { rango: "7000 - 8000", frecuencia: 20 },
-    { rango: "2000 - 3000", frecuencia: 12 },
-    { rango: "3000 - 4000", frecuencia: 20 },
-    { rango: "4000 - 4200", frecuencia: 15 },
-    { rango: "4200 - 4400", frecuencia: 18 },
-    { rango: "4400 - 4600", frecuencia: 22 },
-    { rango: "4600 - 4800", frecuencia: 35 }, 
-    { rango: "4800 - 5000", frecuencia: 28 },
-    { rango: "5000 - 6000", frecuencia: 25 },
-    { rango: "6000 - 7000", frecuencia: 30 },
-    { rango: "7000 - 8000", frecuencia: 20 },
-    { rango: "8000 - 9000", frecuencia: 18 },
-    { rango: "9000 - 10000", frecuencia: 12 },
-    { rango: "4400 - 4600", frecuencia: 22 },
-    { rango: "4600 - 4800", frecuencia: 35 }, 
-    { rango: "4800 - 5000", frecuencia: 28 },
-    { rango: "5000 - 6000", frecuencia: 5 },
-    { rango: "6000 - 7000", frecuencia: 30 },
-    { rango: "7000 - 8000", frecuencia: 24 },
-    { rango: "8000 - 9000", frecuencia: 28 },
-    { rango: "9000 - 10000", frecuencia: 24 },
+    { rango: "2000 - 2200", frecuencia: 22 },
+    { rango: "2200 - 2400", frecuencia: 19 },
+    { rango: "2400 - 2600", frecuencia: 15 },
+    { rango: "2600 - 2800", frecuencia: 21 },
+    { rango: "2800 - 3000", frecuencia: 21 },
+    { rango: "3000 - 3200", frecuencia: 22 },
+    { rango: "3200 - 3400", frecuencia: 27 },
+    { rango: "3400 - 3600", frecuencia: 28 },
+    { rango: "3600 - 3800", frecuencia: 23 },
+    { rango: "3800 - 4000", frecuencia: 21 },
+    { rango: "4000 - 4200", frecuencia: 13 },
+    { rango: "4200 - 4400", frecuencia: 21 },
+    { rango: "4400 - 4600", frecuencia: 27 },
+    { rango: "4600 - 4800", frecuencia: 35 },
+    { rango: "4800 - 5000", frecuencia: 16 },
+    { rango: "5000 - 5200", frecuencia: 20 },
+    { rango: "5200 - 5400", frecuencia: 16 },
+    { rango: "5400 - 5600", frecuencia: 12 },
+    { rango: "5600 - 5800", frecuencia: 23 },
+    { rango: "5800 - 6000", frecuencia: 19 },
   ];
 
   const initialDataGrowthData = [
@@ -58,43 +53,96 @@ const DataMiningCharts: React.FC = () => {
     { year: 2022, dataVolume: 97 },
   ];
 
-  const initialClusterData = [
-    { x: 10, y: 30, cluster: 'A' },
-    { x: 40, y: 30, cluster: 'A' },
-    { x: 45, y: 40, cluster: 'A' },
-    { x: 20, y: 50, cluster: 'B' },
-    { x: 30, y: 70, cluster: 'B' },
-    { x: 50, y: 60, cluster: 'B' },
-    { x: 70, y: 20, cluster: 'C' },
-    { x: 80, y: 30, cluster: 'C' },
-    { x: 90, y: 40, cluster: 'C' },
-    { x: 63, y: 36, cluster: 'C' },
-    { x: 35, y: 32, cluster: 'C' },
-    { x: 27, y: 22, cluster: 'A' },
-    { x: 39, y: 40, cluster: 'B' },
-    { x: 35, y: 24, cluster: 'A' },
-    { x: 58, y: 70, cluster: 'B' },
-    { x: 36, y: 26, cluster: 'A' },
-    { x: 35, y: 44, cluster: 'A' },
-    { x: 43, y: 46, cluster: 'B' },
-    { x: 50, y: 60, cluster: 'B' },
-    { x: 56, y: 37, cluster: 'C' },
-    { x: 22, y: 29, cluster: 'A' },
-    { x: 20, y: 60, cluster: 'B' },
-    { x: 42, y: 51, cluster: 'B' },
-    { x: 38, y: 55, cluster: 'C' },
-    { x: 25, y: 48, cluster: 'A' },
-    { x: 41, y: 25, cluster: 'A' },
-    { x: 33, y: 44, cluster: 'B' },
-    { x: 46, y: 68, cluster: 'B' },
-    { x: 52, y: 41, cluster: 'B' }
+  const ClusterData1 = [
+    { x: 1, y: 12, cluster: 'B' },
+    { x: 2, y: 3, cluster: 'B' },
+    { x: 2, y: 10, cluster: 'B' },
+    { x: 2, y: 14, cluster: 'B' },
+    { x: 2, y: 10, cluster: 'A' },
+    { x: 2, y: 15, cluster: 'B' },
+    { x: 2, y: 25, cluster: 'A' },
+    { x: 3, y: 8, cluster: 'B' },
+    { x: 3, y: 10, cluster: 'A' },
+    { x: 3, y: 20, cluster: 'B' },
+    { x: 4, y: 1, cluster: 'A' },
+    { x: 4, y: 5, cluster: 'A' },
+    { x: 5, y: 2, cluster: 'A' },
+    { x: 5, y: 9, cluster: 'B' },
+    { x: 5, y: 10, cluster: 'A' },
+    { x: 5, y: 1, cluster: 'A' },
+    { x: 6, y: 8, cluster: 'B' },
+    { x: 7, y: 11, cluster: 'A' },
+    { x: 7, y: 9, cluster: 'A' },
+    { x: 7, y: 12, cluster: 'A' }
+  ];
+
+
+
+  const ClusterData2 = [
+    { y: 1, x: 2554, cluster: 'B' },
+    { y: 5, x: 2604, cluster: 'B' },
+    { y: 5, x: 2616, cluster: 'B' },
+    { y: 5, x: 2728, cluster: 'B' },
+    { y: 4, x: 2731, cluster: 'B' },
+    { y: 6, x: 2750, cluster: 'B' },
+    { y: 6, x: 2811, cluster: 'B' },
+    { y: 7, x: 2841, cluster: 'B' },
+    { y: 4, x: 2877, cluster: 'B' },
+    { y: 2, x: 2965, cluster: 'B' },
+    { y: 6, x: 3089, cluster: 'A' },
+    { y: 4, x: 3113, cluster: 'A' },
+    { y: 6, x: 3155, cluster: 'A' },
+    { y: 1, x: 3242, cluster: 'C' },
+    { y: 5, x: 3296, cluster: 'A' },
+    { y: 4, x: 3347, cluster: 'A' },
+    { y: 3, x: 3349, cluster: 'A' },
+    { y: 6, x: 3372, cluster: 'A' },
+    { y: 6, x: 3476, cluster: 'A' },
+    { y: 6, x: 3561, cluster: 'A' },
+    { y: 4, x: 3572, cluster: 'A' },
+    { y: 7, x: 3700, cluster: 'A' },
+    { y: 1, x: 3721, cluster: 'C' },
+    { y: 6, x: 3786, cluster: 'A' },
+    { y: 4, x: 3788, cluster: 'A' },
+    { y: 5, x: 3879, cluster: 'A' },
+    { y: 2, x: 3949, cluster: 'A' },
+    { y: 2, x: 4053, cluster: 'A' },
+    { y: 7, x: 4145, cluster: 'A' },
+    { y: 2, x: 4153, cluster: 'A' },
+    { y: 4, x: 4174, cluster: 'A' },
+    { y: 3, x: 4273, cluster: 'A' },
+    { y: 7, x: 4291, cluster: 'A' },
+    { y: 7, x: 4301, cluster: 'A' },
+    { y: 6, x: 4315, cluster: 'A' },
+    { y: 1, x: 4329, cluster: 'C' },
+    { y: 4, x: 4362, cluster: 'A' },
+    { y: 1, x: 4462, cluster: 'C' },
+    { y: 2, x: 4494, cluster: 'A' },
+    { y: 4, x: 4520, cluster: 'A' },
+    { y: 1, x: 4559, cluster: 'C' },
+    { y: 6, x: 4573, cluster: 'A' },
+    { y: 3, x: 4581, cluster: 'A' },
+    { y: 1, x: 4582, cluster: 'C' },
+    { y: 6, x: 4591, cluster: 'A' },
+    { y: 3, x: 4603, cluster: 'A' },
+    { y: 1, x: 4620, cluster: 'C' },
+    { y: 4, x: 4641, cluster: 'A' },
+    { y: 5, x: 4659, cluster: 'A' },
+    { y: 6, x: 4663, cluster: 'A' },
+    { y: 3, x: 4677, cluster: 'A' },
+    { y: 5, x: 4690, cluster: 'A' },
+    { y: 5, x: 4708, cluster: 'A' },
+    { y: 1, x: 4735, cluster: 'C' },
+    { y: 6, x: 4754, cluster: 'A' },
+    { y: 7, x: 4795, cluster: 'A' }
+
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedAlgorithm, setSelectedAlgorithm] = useState<string | null>(null);
   const [algorithmData, setAlgorithmData] = useState(initialAlgorithmData);
   const [dataGrowthData, setDataGrowthData] = useState(initialDataGrowthData);
-  const [clusterData, setClusterData] = useState(initialClusterData);
+  const [clusterData, setClusterData] = useState(ClusterData1);
 
   const [newAlgorithm, setNewAlgorithm] = useState({ name: '', accuracy: 0, speed: 0 });
   const [newDataGrowth, setNewDataGrowth] = useState({ year: 0, dataVolume: 0 });
@@ -193,8 +241,10 @@ const DataMiningCharts: React.FC = () => {
   };
 
   const handleResetClusterData = () => {
-    setClusterData(initialClusterData);
+    setClusterData(ClusterData1);
   };
+
+
 
   // const handleDeleteAlgorithm = (name: string) => {
   //   setAlgorithmData(algorithmData.filter(algo => algo.name !== name));
@@ -205,8 +255,9 @@ const DataMiningCharts: React.FC = () => {
   };
 
   const handleDeleteClusterPoint = (x: number, y: number) => {
-    setClusterData(clusterData.filter(point => point.x !== x || point.y !== y));
+    setClusterData(ClusterData1.filter(point => point.x !== x || point.y !== y));
   };
+
 
 
   useEffect(() => {
@@ -431,12 +482,12 @@ const DataMiningCharts: React.FC = () => {
               <Legend />
               <Scatter
                 name="Fruta"
-                data={clusterData.filter(d => d.cluster === 'A')}
+                data={ClusterData1.filter(d => d.cluster === 'A')}
                 fill="#8884d8"
               />
               <Scatter
                 name="Vegetables"
-                data={clusterData.filter(d => d.cluster === 'B')}
+                data={ClusterData1.filter(d => d.cluster === 'B')}
                 fill="#82ca9d"
               />
 
@@ -709,14 +760,14 @@ const DataMiningCharts: React.FC = () => {
                 </ul>
 
                 <ResponsiveContainer width="100%" height={400}>
-      <BarChart data={initialAlgorithmData}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="rango" label={{ value: "MontoTotalCompras", position: "insideBottom", offset: -5 }} />
-        <YAxis label={{ value: "Frequency", angle: -90, position: "insideLeft" }} />
-        <Tooltip />
-        <Bar dataKey="frecuencia" fill="#8884d8" />
-      </BarChart>
-    </ResponsiveContainer>
+                  <BarChart data={initialAlgorithmData}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="rango" label={{ value: "MontoTotalCompras", position: "insideBottom", offset: -5 }} />
+                    <YAxis label={{ value: "Frequency", angle: -90, position: "insideLeft" }} />
+                    <Tooltip />
+                    <Bar dataKey="frecuencia" fill="#8884d8" />
+                  </BarChart>
+                </ResponsiveContainer>
                 {/* {selectedAlgorithm && (
             <div className="algorithm-details">
               <h3>{selectedAlgorithm}</h3>
@@ -786,34 +837,35 @@ const DataMiningCharts: React.FC = () => {
                       type="category"
                       dataKey="x"
                       name="Color"
-                      label={{ value: 'Color', position: 'insideBottom', offset: -5 }}
+                      label={{ value: 'Monto total Compra', position: 'insideBottom', offset: -5 }}
                     />
                     <YAxis
                       type="number"
                       dataKey="y"
                       name="Size"
-                      label={{ value: 'Size', angle: -90, position: 'insideLeft' }}
+                      label={{ value: 'Frecuencia', angle: -90, position: 'insideLeft' }}
                     />
                     <Tooltip cursor={{ strokeDasharray: '3 3' }} />
                     <Legend />
                     <Scatter
                       name="C1"
-                      data={clusterData.filter(d => d.cluster === 'A')}
+                      data={ClusterData2.filter(d => d.cluster === 'A')}
                       fill="#8884d8"
                     />
                     <Scatter
                       name="C2"
-                      data={clusterData.filter(d => d.cluster === 'B')}
+                      data={ClusterData2.filter(d => d.cluster === 'B')}
                       fill="#82ca9d"
                     />
                     <Scatter
                       name="C3"
-                      data={clusterData.filter(d => d.cluster === 'B')}
+                      data={ClusterData2.filter(d => d.cluster === 'C')}
                       fill="#FFBB28"
                     />
 
                   </ScatterChart>
                 </ResponsiveContainer>
+                
                 {/* <form onSubmit={handleAddClusterPoint} className="add-data-form">
             <input
               type="number"
