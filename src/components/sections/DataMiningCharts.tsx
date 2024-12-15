@@ -5,6 +5,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import NavigationForGraphsAndGlossary from './NavigationForGraphsAndGlossary ';
 import Logistica_Imagen from '../../assets/Análisis de clasificación.png';
+import Clustering_Imagen from '../../assets/Análisis de agrupamiento (Clustering).png';
+
 
 const DataMiningCharts: React.FC = () => {
   const initialAlgorithmData = [
@@ -169,26 +171,22 @@ const DataMiningCharts: React.FC = () => {
           <h2>Análisis de clasificación simple</h2>
           <p>El análisis de clasificación es una técnica fundamental en minería de datos. Nos permite categorizar elementos en diferentes clases basándonos en sus características. Para este ejemplo utilizaremos el conjunto de datos Iris, que incluye información sobre las medidas de tres especies de flores: setosa, versicolor y virginica. Nuestro objetivo será entrenar un modelo que pueda predecir correctamente la especie de una flor desconocida usando sus medidas, estas son la longitud y ancho del pétalo y del sépalo.
             Empleando Orange Data Mining, lo que haremos será: cargar los datos, explorar sus características, entrenar un modelo de regresión logística, y evaluar su rendimiento con métricas estándar como precisión y F1 score. No sólo veremos cómo implementar un modelo de clasificación, sino que además entenderemos cómo evaluar su efectividad.
-            
-            <div>
-            <img src={Logistica_Imagen}></img>
-            </div>
 
-            <div style={{display: 'flex', flexDirection: 'row', gap: '0.5rem'}}>
+            <div style={{ display: 'flex', flexDirection: 'row', gap: '0.5rem' }}>
               <a
                 href="files/Análisis de clasificación simple.ows"
                 download="Análisis de clasificación simple.ows"
                 className="download-link orange"
               >
-                Descargar Archivo .ows
+                Descargar .ows
               </a>
               <br />
               <a
-                href="/files/example.xlsx"
+                href="files/iris.tab"
                 download="example.xlsx"
                 className="download-link green"
               >
-                Descargar Archivo .xlsx
+                Descargar .xlsx
               </a>
             </div>
 
@@ -230,6 +228,10 @@ const DataMiningCharts: React.FC = () => {
                 </ul>
               </li>
             </ol>
+
+            <div>
+              <img src={Logistica_Imagen} className='image-charts' alt='imagen-logistica'></img>
+            </div>
 
           </p>
 
@@ -282,6 +284,150 @@ const DataMiningCharts: React.FC = () => {
             </ResponsiveContainer>
           </div>
         </div>
+
+        <div className="chart-container">
+          <h2>Análisis de agrupamiento (Clustering)</h2>
+          <p>
+            El análisis de agrupamiento, o clustering, es una técnica de aprendizaje no supervisado que permite organizar elementos en grupos basados en sus similitudes. En este ejemplo, utilizaremos un conjunto de datos sobre frutas y vegetales, clasificándolas según características como peso, tamaño y color.
+            Este enfoque es útil en diversas áreas, como marketing, biología o análisis de inventarios. Con Orange Data Mining, aplicaremos el algoritmo de K-Means, una de las técnicas más utilizadas para clustering, y visualizaremos los resultados de forma gráfica para identificar patrones y estructuras ocultas en los datos. Además, exploraremos los datos, configuraremos el modelo de agrupamiento y visualizaremos los clústeres, proporcionando una experiencia práctica en el uso de herramientas visuales para análisis de datos.
+
+            <div style={{ display: 'flex', flexDirection: 'row', gap: '0.5rem' }}>
+              <a
+                href="files/Análisis de agrupamiento (Clustering).ows"
+                download="Análisis de agrupamiento (Clustering).ows"
+                className="download-link orange"
+              >
+                Descargar .ows
+              </a>
+              <br />
+              <a
+                href="files/fruits_vegetables.tab"
+                download="fruits_vegetables.tab"
+                className="download-link green"
+              >
+                Descargar .xlsx
+              </a>
+            </div>
+
+            <h3>Objetivo:</h3>
+            <p>Agrupar frutas por características en un conjunto de datos.</p>
+            <h3>Pasos:</h3>
+            <ol>
+              <li>
+                <strong>Cargar datos:</strong>
+                <ul>
+                  <li>
+                    Usa el widget <strong>File</strong> para cargar el archivo <code>fruits_vegetables.tab</code> (podemos crear uno con características como peso, tamaño, etc.).
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Visualizar datos:</strong>
+                <ul>
+                  <li>
+                    Conecta el widget <strong>File</strong> al widget <strong>Scatter Plot</strong>.
+                  </li>
+                  <li>
+                    Configura las dimensiones del gráfico para observar patrones en las características.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <strong>Aplicar clustering:</strong>
+                <ul>
+                  <li>Arrastra el widget <strong>K-Means</strong> al lienzo.</li>
+                  <li>Conecta <strong>File → K-Means</strong>.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Visualizar resultados:</strong>
+                <ul>
+                  <li>
+                    Conecta <strong>K-Means → Scatter Plot</strong> para ver los clústeres formados.
+                  </li>
+                  <li>
+                    Cambia los ejes en el gráfico para explorar diferentes relaciones entre las características.
+                  </li>
+                </ul>
+              </li>
+            </ol>
+
+            <div >
+              <img src={Clustering_Imagen} className='image-charts' alt="Visualización del clustering" />
+            </div>
+          </p>
+
+          <ResponsiveContainer width="100%" height={300}>
+            <ScatterChart
+              width={600}
+              height={400}
+              margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+            >
+              <CartesianGrid />
+              <XAxis
+                type="category"
+                dataKey="x"
+                name="Color"
+                label={{ value: 'Color', position: 'insideBottom', offset: -5 }}
+              />
+              <YAxis
+                type="number"
+                dataKey="y"
+                name="Size"
+                label={{ value: 'Size', angle: -90, position: 'insideLeft' }}
+              />
+              <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+              <Legend />
+              <Scatter
+                name="Fruta"
+                data={clusterData.filter(d => d.cluster === 'A')}
+                fill="#8884d8"
+              />
+              <Scatter
+                name="Vegetables"
+                data={clusterData.filter(d => d.cluster === 'B')}
+                fill="#82ca9d"
+              />
+ 
+            </ScatterChart>
+          </ResponsiveContainer>
+          <form onSubmit={handleAddClusterPoint} className="add-data-form">
+            <input
+              type="number"
+              placeholder="Coordenada X"
+              value={newClusterPoint.x || ''}
+              onChange={(e) => setNewClusterPoint({ ...newClusterPoint, x: Number(e.target.value) })}
+              required
+            />
+            <input
+              type="number"
+              placeholder="Coordenada Y"
+              value={newClusterPoint.y || ''}
+              onChange={(e) => setNewClusterPoint({ ...newClusterPoint, y: Number(e.target.value) })}
+              required
+            />
+            <input
+              type="text"
+              placeholder="Cluster (A, B, o C)"
+              value={newClusterPoint.cluster}
+              onChange={(e) => setNewClusterPoint({ ...newClusterPoint, cluster: e.target.value })}
+              required
+            />
+            <button type="submit">Agregar punto de Cluster </button>
+          </form>
+          <div className="data-actions">
+            <button onClick={handleResetClusterData}>Reiniciar datos</button>
+          </div>
+          <div className="data-list">
+            {clusterData.map((point, index) => (
+              <div key={index} className="data-item">
+                <span>({point.x}, {point.y}) - Cluster {point.cluster}</span>
+                <button onClick={() => handleDeleteClusterPoint(point.x, point.y)}>Eliminar</button>
+              </div>
+            ))}
+          </div>
+        </div>
+
 
         <div className="chart-container">
           <h2>Crecimiento de Datos en el Tiempo</h2>
@@ -383,56 +529,7 @@ const DataMiningCharts: React.FC = () => {
           </div>
         </div>
 
-        <div className="chart-container">
-          <h2>Visualización Clustering</h2>
-          <ResponsiveContainer width="100%" height={300}>
-            <ScatterChart>
-              <CartesianGrid />
-              <XAxis type="number" dataKey="x" name="X" />
-              <YAxis type="number" dataKey="y" name="Y" />
-              <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-              <Legend />
-              <Scatter name="Cluster A" data={clusterData.filter(d => d.cluster === 'A')} fill="#8884d8" />
-              <Scatter name="Cluster B" data={clusterData.filter(d => d.cluster === 'B')} fill="#82ca9d" />
-              <Scatter name="Cluster C" data={clusterData.filter(d => d.cluster === 'C')} fill="#ffc658" />
-            </ScatterChart>
-          </ResponsiveContainer>
-          <form onSubmit={handleAddClusterPoint} className="add-data-form">
-            <input
-              type="number"
-              placeholder="Coordenada X"
-              value={newClusterPoint.x || ''}
-              onChange={(e) => setNewClusterPoint({ ...newClusterPoint, x: Number(e.target.value) })}
-              required
-            />
-            <input
-              type="number"
-              placeholder="Coordenada Y"
-              value={newClusterPoint.y || ''}
-              onChange={(e) => setNewClusterPoint({ ...newClusterPoint, y: Number(e.target.value) })}
-              required
-            />
-            <input
-              type="text"
-              placeholder="Cluster (A, B, o C)"
-              value={newClusterPoint.cluster}
-              onChange={(e) => setNewClusterPoint({ ...newClusterPoint, cluster: e.target.value })}
-              required
-            />
-            <button type="submit">Agregar punto de Cluster </button>
-          </form>
-          <div className="data-actions">
-            <button onClick={handleResetClusterData}>Reiniciar datos</button>
-          </div>
-          <div className="data-list">
-            {clusterData.map((point, index) => (
-              <div key={index} className="data-item">
-                <span>({point.x}, {point.y}) - Cluster {point.cluster}</span>
-                <button onClick={() => handleDeleteClusterPoint(point.x, point.y)}>Eliminar</button>
-              </div>
-            ))}
-          </div>
-        </div>
+
       </div>
     </>
   );

@@ -140,6 +140,21 @@ h1 {
 
 
 
+@media (max-width: 480px) {
+  .image-charts {
+    width: 80%;
+    height: 80%;
+   
+  }
+
+}
+
+
+
+
+
+
+
 .download-link {
   display: inline-block;
   margin: 8px 0;
