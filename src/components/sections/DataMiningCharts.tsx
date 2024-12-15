@@ -268,7 +268,7 @@ const DataMiningCharts: React.FC = () => {
     <>
       <NavigationForGraphsAndGlossary />
       <div id='graficos' className="data-mining-charts">
-        <h2 className="section-title">Grafico Interactivo</h2>
+        <h2 className="section-title">Graficos Demostrativos</h2>
         <div className="chart-container" data-aos="fade-up">
           <h2>Análisis de clasificación simple</h2>
           <p>El análisis de clasificación es una técnica fundamental en minería de datos. Nos permite categorizar elementos en diferentes clases basándonos en sus características. Para este ejemplo utilizaremos el conjunto de datos Iris, que incluye información sobre las medidas de tres especies de flores: setosa, versicolor y virginica. Nuestro objetivo será entrenar un modelo que pueda predecir correctamente la especie de una flor desconocida usando sus medidas, estas son la longitud y ancho del pétalo y del sépalo.
@@ -280,7 +280,7 @@ const DataMiningCharts: React.FC = () => {
                 download="Análisis de clasificación simple.ows"
                 className="download-link orange"
               >
-                Descargar .ows
+                Descargar Orange .ows
               </a>
               <br />
               <a
@@ -288,7 +288,7 @@ const DataMiningCharts: React.FC = () => {
                 download="example.xlsx"
                 className="download-link green"
               >
-                Descargar .xlsx
+                Descargar DataMainig .xlsx
               </a>
             </div>
 
@@ -399,7 +399,7 @@ const DataMiningCharts: React.FC = () => {
                 download="Análisis de agrupamiento (Clustering).ows"
                 className="download-link orange"
               >
-                Descargar .ows
+                Descargar Orange .ows
               </a>
               <br />
               <a
@@ -407,7 +407,7 @@ const DataMiningCharts: React.FC = () => {
                 download="fruits_vegetables.tab"
                 className="download-link green"
               >
-                Descargar .xlsx
+                Descargar Datamainig .xlsx
               </a>
             </div>
 
@@ -544,7 +544,7 @@ const DataMiningCharts: React.FC = () => {
                 download="Reglas de asociación.ows"
                 className="download-link orange"
               >
-                Descargar .ows
+                Descargar Orange .ows
               </a>
               <br />
               <a
@@ -552,7 +552,7 @@ const DataMiningCharts: React.FC = () => {
                 download="market-basket.xlsx"
                 className="download-link green"
               >
-                Descargar .xlsx
+                Descargar Datamainig .xlsx
               </a>
             </div>
 
@@ -676,7 +676,7 @@ const DataMiningCharts: React.FC = () => {
                 download="Identificacion de clientes rentables.ows"
                 className="download-link orange"
               >
-                Descargar .ows
+                Descargar Orange .ows
               </a>
               <br />
               <a
@@ -684,7 +684,7 @@ const DataMiningCharts: React.FC = () => {
                 download="comercial_delta_data_large.csv"
                 className="download-link green"
               >
-                Descargar .xlsx
+                Descargar Datamainig .xlsx
               </a>
             </div>
 
@@ -955,9 +955,10 @@ const DataMiningCharts: React.FC = () => {
 
         </div>
 
-
+        <h2 className="section-title">Grafico Interactivo</h2>
         <div className="chart-container">
-          <h2>Crecimiento de Datos en el Tiempo</h2>
+          <h2>Gráfico de línea</h2>
+          <p>Los gráficos de líneas se usan para representar grandes cantidades de datos que tienen lugar durante un período continuado de tiempo.</p>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={dataGrowthData}>
               <CartesianGrid strokeDasharray="3 3" />
