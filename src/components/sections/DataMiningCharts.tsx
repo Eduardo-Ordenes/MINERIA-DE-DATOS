@@ -12,12 +12,40 @@ import ProfitabilityAnalysis_Imagen from '../../assets/Identificación de client
 
 
 const DataMiningCharts: React.FC = () => {
+  // const initialAlgorithmData = [
+  //   { name: 'Decision Trees', accuracy: 85, speed: 90 },
+  //   { name: 'Random Forest', accuracy: 92, speed: 75 },
+  //   { name: 'SVM', accuracy: 88, speed: 60 },
+  //   { name: 'K-Means', accuracy: 78, speed: 95 },
+  //   { name: 'Neural Networks', accuracy: 94, speed: 50 },
+  // ];
+
   const initialAlgorithmData = [
-    { name: 'Decision Trees', accuracy: 85, speed: 90 },
-    { name: 'Random Forest', accuracy: 92, speed: 75 },
-    { name: 'SVM', accuracy: 88, speed: 60 },
-    { name: 'K-Means', accuracy: 78, speed: 95 },
-    { name: 'Neural Networks', accuracy: 94, speed: 50 },
+    { rango: "0 - 1000", frecuencia: 5 },
+    { rango: "1000 - 2000", frecuencia: 10 },
+    { rango: "5000 - 6000", frecuencia: 25 },
+    { rango: "6000 - 7000", frecuencia: 30 },
+    { rango: "7000 - 8000", frecuencia: 20 },
+    { rango: "2000 - 3000", frecuencia: 12 },
+    { rango: "3000 - 4000", frecuencia: 20 },
+    { rango: "4000 - 4200", frecuencia: 15 },
+    { rango: "4200 - 4400", frecuencia: 18 },
+    { rango: "4400 - 4600", frecuencia: 22 },
+    { rango: "4600 - 4800", frecuencia: 35 }, 
+    { rango: "4800 - 5000", frecuencia: 28 },
+    { rango: "5000 - 6000", frecuencia: 25 },
+    { rango: "6000 - 7000", frecuencia: 30 },
+    { rango: "7000 - 8000", frecuencia: 20 },
+    { rango: "8000 - 9000", frecuencia: 18 },
+    { rango: "9000 - 10000", frecuencia: 12 },
+    { rango: "4400 - 4600", frecuencia: 22 },
+    { rango: "4600 - 4800", frecuencia: 35 }, 
+    { rango: "4800 - 5000", frecuencia: 28 },
+    { rango: "5000 - 6000", frecuencia: 5 },
+    { rango: "6000 - 7000", frecuencia: 30 },
+    { rango: "7000 - 8000", frecuencia: 24 },
+    { rango: "8000 - 9000", frecuencia: 28 },
+    { rango: "9000 - 10000", frecuencia: 24 },
   ];
 
   const initialDataGrowthData = [
@@ -40,6 +68,26 @@ const DataMiningCharts: React.FC = () => {
     { x: 70, y: 20, cluster: 'C' },
     { x: 80, y: 30, cluster: 'C' },
     { x: 90, y: 40, cluster: 'C' },
+    { x: 63, y: 36, cluster: 'C' },
+    { x: 35, y: 32, cluster: 'C' },
+    { x: 27, y: 22, cluster: 'A' },
+    { x: 39, y: 40, cluster: 'B' },
+    { x: 35, y: 24, cluster: 'A' },
+    { x: 58, y: 70, cluster: 'B' },
+    { x: 36, y: 26, cluster: 'A' },
+    { x: 35, y: 44, cluster: 'A' },
+    { x: 43, y: 46, cluster: 'B' },
+    { x: 50, y: 60, cluster: 'B' },
+    { x: 56, y: 37, cluster: 'C' },
+    { x: 22, y: 29, cluster: 'A' },
+    { x: 20, y: 60, cluster: 'B' },
+    { x: 42, y: 51, cluster: 'B' },
+    { x: 38, y: 55, cluster: 'C' },
+    { x: 25, y: 48, cluster: 'A' },
+    { x: 41, y: 25, cluster: 'A' },
+    { x: 33, y: 44, cluster: 'B' },
+    { x: 46, y: 68, cluster: 'B' },
+    { x: 52, y: 41, cluster: 'B' }
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -118,11 +166,11 @@ const DataMiningCharts: React.FC = () => {
     );
   };
 
-  const handleAddAlgorithm = (e: React.FormEvent) => {
-    e.preventDefault();
-    setAlgorithmData([...algorithmData, newAlgorithm]);
-    setNewAlgorithm({ name: '', accuracy: 0, speed: 0 });
-  };
+  // const handleAddAlgorithm = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setAlgorithmData([...algorithmData, newAlgorithm]);
+  //   setNewAlgorithm({ name: '', accuracy: 0, speed: 0 });
+  // };
 
   const handleAddDataGrowth = (e: React.FormEvent) => {
     e.preventDefault();
@@ -148,9 +196,9 @@ const DataMiningCharts: React.FC = () => {
     setClusterData(initialClusterData);
   };
 
-  const handleDeleteAlgorithm = (name: string) => {
-    setAlgorithmData(algorithmData.filter(algo => algo.name !== name));
-  };
+  // const handleDeleteAlgorithm = (name: string) => {
+  //   setAlgorithmData(algorithmData.filter(algo => algo.name !== name));
+  // };
 
   const handleDeleteDataGrowth = (year: number) => {
     setDataGrowthData(dataGrowthData.filter(data => data.year !== year));
@@ -660,17 +708,15 @@ const DataMiningCharts: React.FC = () => {
                   </li>
                 </ul>
 
-                <ResponsiveContainer width="100%" height={300}>
-                  <BarChart data={algorithmData}>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis />
-                    <Tooltip />
-                    <Legend onClick={(e) => setSelectedAlgorithm(e.value)} />
-                    <Bar dataKey="accuracy" fill="#8884d8"  />
-                    <Bar dataKey="speed" fill="#8884d8" />
-                  </BarChart>
-                </ResponsiveContainer>
+                <ResponsiveContainer width="100%" height={400}>
+      <BarChart data={initialAlgorithmData}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="rango" label={{ value: "MontoTotalCompras", position: "insideBottom", offset: -5 }} />
+        <YAxis label={{ value: "Frequency", angle: -90, position: "insideLeft" }} />
+        <Tooltip />
+        <Bar dataKey="frecuencia" fill="#8884d8" />
+      </BarChart>
+    </ResponsiveContainer>
                 {/* {selectedAlgorithm && (
             <div className="algorithm-details">
               <h3>{selectedAlgorithm}</h3>
