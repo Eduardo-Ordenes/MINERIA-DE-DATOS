@@ -42,7 +42,6 @@ const Clustering: React.FC = () => {
 
   return (
     <div className="chart-container">
-      <h2>Visualización de Clustering</h2>
       <ResponsiveContainer width="100%" height={300}>
         <ScatterChart>
           <CartesianGrid />

@@ -800,8 +800,8 @@ const DataMiningCharts: React.FC = () => {
         </div>
 
         <div className="chart-container">
-          <h2>Gráfico de disperción</h2>
-          <p>Los gráficos de disperción una herramienta visual utilizada para representar y analizar relaciones entre dos variables numéricas.</p>
+          <h2>Gráfico de dispersión</h2>
+          <p>Los gráficos de dispersión una herramienta visual utilizada para representar y analizar relaciones entre dos variables numéricas.</p>
           <Clustering />
         </div>
 
