@@ -467,10 +467,12 @@ const DataMiningCharts: React.FC = () => {
             >
               <CartesianGrid />
               <XAxis
-                type="category"
+                type="number"
                 dataKey="x"
                 name="Color"
                 label={{ value: 'Color', position: 'insideBottom', offset: -5 }}
+                domain={[Math.min(...ClusterData1.map(d => d.x)), Math.max(...ClusterData1.map(d => d.x))]}
+                allowDecimals={false} // Evita decimales en los valores del eje X
               />
               <YAxis
                 type="number"
@@ -490,9 +492,9 @@ const DataMiningCharts: React.FC = () => {
                 data={ClusterData1.filter(d => d.cluster === 'B')}
                 fill="#82ca9d"
               />
-
             </ScatterChart>
           </ResponsiveContainer>
+
           {/* <form onSubmit={handleAddClusterPoint} className="add-data-form">
             <input
               type="number"
@@ -834,15 +836,16 @@ const DataMiningCharts: React.FC = () => {
                   >
                     <CartesianGrid />
                     <XAxis
-                      type="category"
+                      type="number"
                       dataKey="x"
-                      name="Color"
+                      name="Monto"
                       label={{ value: 'Monto total Compra', position: 'insideBottom', offset: -5 }}
+                      domain={['dataMin', 'dataMax']} // Ajusta dinámicamente al mínimo y máximo de los datos
                     />
                     <YAxis
                       type="number"
                       dataKey="y"
-                      name="Size"
+                      name="Frecuencia"
                       label={{ value: 'Frecuencia', angle: -90, position: 'insideLeft' }}
                     />
                     <Tooltip cursor={{ strokeDasharray: '3 3' }} />
@@ -862,10 +865,10 @@ const DataMiningCharts: React.FC = () => {
                       data={ClusterData2.filter(d => d.cluster === 'C')}
                       fill="#FFBB28"
                     />
-
                   </ScatterChart>
                 </ResponsiveContainer>
-                
+
+
                 {/* <form onSubmit={handleAddClusterPoint} className="add-data-form">
             <input
               type="number"
